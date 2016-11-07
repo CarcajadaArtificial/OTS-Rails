@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OTSApplication</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if notice || alert %>
+      <% if notice %>
+        <div class="alert-message alert alert-success" role="alert">
+          <p class="notice"><%= notice %></p>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert-message alert alert-success" role="alert">
+          <p class="alert"><%= alert %></p>
+        </div>
+      <% end %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

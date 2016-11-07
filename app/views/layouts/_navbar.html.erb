@@ -1,0 +1,64 @@
+<nav class="navbar navbar-light bg-faded">
+  <div class='container'>
+    <a class='navbar-brand' href='/'>
+      OTS<span class='light'>Services</span>
+    </a>
+    <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+      &#9776;
+    </button>
+    <ul class="nav navbar-nav pull-sm-right hidden-xs-down">
+      <% if user_signed_in? %>
+
+        <!-- Admin -->
+        <% if current_user && current_user.AdminStatus? %>
+          <div class="dropdown nav-item">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Reportes (Incompleto)
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <%= link_to "Cliente", cliente_path, type: "button", class: "btn btn-default btn-block"%>
+              <%= link_to "Camión", camion_path, type: "button", class: "btn btn-default btn-block"%>
+              <%= link_to "Representante", representante_path, type: "button", class: "btn btn-default btn-block" %>
+              <%= link_to "Recibos", recibo_path, type: "button", class: "btn btn-default btn-block" %>
+            </ul>
+          </div>
+
+          <div class="dropdown nav-item">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Dar de alta
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <%= link_to "Cliente", cliente_path, type: "button", class: "btn btn-default btn-block"%>
+              <%= link_to "Camión", camion_path, type: "button", class: "btn btn-default btn-block"%>
+              <%= link_to "Representante", representante_path, type: "button", class: "btn btn-default btn-block" %>
+            </ul>
+          </div>
+        <% else %>
+
+        <!-- Representante -->
+        <div class="dropdown nav-item">
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Acciones
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <%= link_to "Generar venta", recibo_path, type: "button", class: "btn btn-default btn-block"%>
+            <%= link_to "Solicitar producto", solicitud_path, type: "button", class: "btn btn-default btn-block"%>
+          </ul>
+        </div>
+        <% end %>
+
+        <li class="nav-item">
+          <%= link_to "Sign Out", destroy_user_session_path, type: "button", class: "btn btn-danger", :method => :delete %>
+        </li>
+
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Sign Up", new_user_registration_path, type: "button", class: "btn btn-success" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log In", new_user_session_path, type: "button", class: "btn btn-success" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

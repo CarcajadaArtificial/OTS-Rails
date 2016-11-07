@@ -1,0 +1,28 @@
+<%= render 'layouts/navbar' %>
+
+<div class="row">
+  <div class="col-md-4 offset-md-4" style="text-align: center">
+
+    <h2>Iniciar Sesión</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f| %>
+
+      <div class="field">
+        <%= f.label :email, class: 'sr-only' %><br />
+        <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Correo electrónico'%>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, class: 'sr-only' %><br />
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Contraseña' %>
+      </div>
+
+      </br>
+
+      <div class="actions" style="text-align: center">
+        <%= f.submit "Entrar", class: 'btn btn-lg btn-primary'  %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

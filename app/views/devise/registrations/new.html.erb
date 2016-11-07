@@ -1,0 +1,47 @@
+<%= render 'layouts/navbar' %>
+
+<div class="row">
+  <div class="col-md-4 offset-md-4" style="text-align: center">
+
+    <h2>Crear cuenta</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin"}) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field">
+        <%= f.label :email, class: 'sr-only' %><br />
+        <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Correo electrónico' %>
+      </div>
+
+      </br>
+
+      <div class="field">
+        <%= f.label :password, class: 'sr-only' %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
+        <% end %><br/>
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Contraseña' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, class: 'sr-only' %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirmación contraseña' %>
+      </div>
+
+      <br>
+
+      <div class="field">
+        <%= f.label :AdminStatus, "Administrador"%>
+      </br>
+        <%= f.check_box :AdminStatus%>
+      </div>
+
+      </br>
+
+      <div class="actions">
+        <%= f.submit "Crear", class: 'btn btn-lg btn-primary' %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
