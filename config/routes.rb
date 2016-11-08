@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   get '/solicitud'      => 'static_pages#solicitud',      as: :solicitud
 
   Rails.application.routes.draw do
-    devise_for :users, controllers: {
-        registration: 'users/registration'
-    }
+    # devise_for :users, controllers: {
+    #     registration: 'users/registration'
+    # }
+    devise_for :users do
+  get '/users/sign_out' => 'devise/sessions#destroy'
+end
   end
 
 end
