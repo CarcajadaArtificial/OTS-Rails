@@ -1,0 +1,37 @@
+<!--
+<% if current_user && current_user.AdminStatus? %>
+  <div class="dropdown nav-item">
+    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      Reportes (Incompleto)
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <%= link_to "Cliente", new_cliente_path, type: "button", class: "btn btn-default btn-block"%>
+      <%= link_to "Camión", camion_path, type: "button", class: "btn btn-default btn-block"%>
+      <%= link_to "Representante", representante_path, type: "button", class: "btn btn-default btn-block" %>
+      <%= link_to "Recibos", recibo_path, type: "button", class: "btn btn-default btn-block" %>
+    </ulq>
+  </div>
+
+  <div class="dropdown nav-item">
+    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      Dar de alta
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <%= link_to "Cliente", new_cliente_path, type: "button", class: "btn btn-default btn-block"%>
+      <%= link_to "Camión", camion_path, type: "button", class: "btn btn-default btn-block"%>
+      <%= link_to "Representante", representante_path, type: "button", class: "btn btn-default btn-block" %>
+    </ul>
+  </div>
+<% else %>
+
+<div class="dropdown nav-item">
+  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    Acciones
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <%= link_to "Generar venta", recibo_path, type: "button", class: "btn btn-default btn-block"%>
+    <%= link_to "Solicitar producto", solicitud_path, type: "button", class: "btn btn-default btn-block"%>
+  </ul>
+</div>
+<% end %>
+-->

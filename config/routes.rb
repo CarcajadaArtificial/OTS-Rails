@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  root to: 'layouts#index'
-  
+  resources :clientes
+  #root to: 'layouts#index'
+  get '/clientes/index' => 'clientes#index', as: :clientes_view
+
   Rails.application.routes.draw do
     # devise_for :users, controllers: {
     #     registration: 'users/registration'

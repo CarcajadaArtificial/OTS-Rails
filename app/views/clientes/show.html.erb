@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Credencial cliente:</strong>
+  <%= @cliente.credencial_cliente %>
+</p>
+
+<p>
+  <strong>Empresa cliente:</strong>
+  <%= @cliente.empresa_cliente %>
+</p>
+
+<p>
+  <strong>Responsable cliente:</strong>
+  <%= @cliente.responsable_cliente %>
+</p>
+
+<p>
+  <strong>Telefono cliente:</strong>
+  <%= @cliente.telefono_cliente %>
+</p>
+
+<p>
+  <strong>Email cliente:</strong>
+  <%= @cliente.email_cliente %>
+</p>
+
+<p>
+  <strong>Comisionista cliente:</strong>
+  <%= @cliente.comisionista_cliente %>
+</p>
+
+<p>
+  <strong>Porcentage cliente:</strong>
+  <%= @cliente.porcentage_cliente %>
+</p>
+
+<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
+<%= link_to 'Back', clientes_path %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  credencial_cliente: 
+  empresa_cliente: MyString
+  responsable_cliente: MyString
+  telefono_cliente: 1
+  email_cliente: MyString
+  comisionista_cliente: MyString
+  porcentage_cliente: 1.5
+
+two:
+  credencial_cliente: 
+  empresa_cliente: MyString
+  responsable_cliente: MyString
+  telefono_cliente: 1
+  email_cliente: MyString
+  comisionista_cliente: MyString
+  porcentage_cliente: 1.5
