@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112011604) do
+ActiveRecord::Schema.define(version: 20161112031713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "camions", force: :cascade do |t|
+    t.string   "placa_camion"
+    t.string   "marca_camion"
+    t.string   "modelo_camion"
+    t.integer  "ano_camion"
+    t.integer  "rendimientohistorico_camion"
+    t.string   "nombreoperador_camion"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["placa_camion"], name: "index_camions_on_placa_camion", using: :btree
+  end
 
   create_table "clientes", force: :cascade do |t|
     t.string   "id_cliente"
