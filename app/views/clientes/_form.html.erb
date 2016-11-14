@@ -16,13 +16,15 @@
     </div>
     <% end %>
 
+    <h2>Dar de alta un cliente nuevo</h2>
+
+
     <div class="field">
-      <%= f.label :credencial_cliente %>
-      <%= f.text_field :credencial_cliente %>
+      <%= f.text_field :credencial_cliente, class: 'form-control', placeholder: 'Credencial del cliente' %>
     </div>
 
     <div class="field">
-      <%= f.label :empresa_cliente %>
+      <%= f.label :empresa_cliente, class: 'sr-only' %>
       <%= f.text_field :empresa_cliente %>
     </div>
 

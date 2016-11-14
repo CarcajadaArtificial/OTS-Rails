@@ -11782,3 +11782,63 @@ Processing by ClientesController#new as HTML
 Completed 200 OK in 61ms (Views: 58.1ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/clientes/new" for 127.0.0.1 at 2016-11-14 17:07:53 -0600
+Processing by ClientesController#new as HTML
+  Rendering clientes/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (18.1ms)
+  Rendered clientes/_form.html.erb (27.7ms)
+  Rendered clientes/new.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 109ms (Views: 89.6ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-11-14 17:07:57 -0600
+Processing by ClientesController#index as HTML
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (2.4ms)
+  [1m[36mCliente Load (1.4ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  Rendered clientes/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 59ms (Views: 55.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-11-14 17:09:02 -0600
+Processing by ClientesController#index as HTML
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (13.1ms)
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  Rendered clientes/index.html.erb within layouts/application (26.4ms)
+Completed 200 OK in 85ms (Views: 81.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/clientes/new" for 127.0.0.1 at 2016-11-14 17:09:05 -0600
+Processing by ClientesController#new as HTML
+  Rendering clientes/new.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (4.4ms)
+  Rendered clientes/_form.html.erb (11.6ms)
+  Rendered clientes/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 83ms (Views: 80.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/clientes/new" for 127.0.0.1 at 2016-11-14 17:09:55 -0600
+Processing by ClientesController#new as HTML
+  Rendering clientes/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (4.3ms)
+  Rendered clientes/_form.html.erb (10.8ms)
+  Rendered clientes/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 76ms (Views: 73.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/clientes/new" for 127.0.0.1 at 2016-11-14 17:10:05 -0600
+Processing by ClientesController#new as HTML
+  Rendering clientes/new.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (2.7ms)
+  Rendered clientes/_form.html.erb (7.2ms)
+  Rendered clientes/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 57ms (Views: 54.5ms | ActiveRecord: 0.8ms)
+
+

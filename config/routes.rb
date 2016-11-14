@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root to: 'layouts#index'
 
   Rails.application.routes.draw do
-    resources :clientes
     # devise_for :users, controllers: {
     #     registration: 'users/registration'
     # }
