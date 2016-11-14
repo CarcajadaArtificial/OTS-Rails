@@ -1,39 +1,38 @@
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/navbar' %>
 
-<h1>Clientes</h1>
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <h2 style="text-align:center">Clientes</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Credencial cliente</th>
-      <th>Empresa cliente</th>
-      <th>Responsable cliente</th>
-      <th>Telefono cliente</th>
-      <th>Email cliente</th>
-      <th>Comisionista cliente</th>
-      <th>Porcentage cliente</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Ahorro</th>
+          <th>Participación OTS</th>
+          <th>Participación comisionista</th>
+          <th>Sobres gas</th>
+          <th>Sobres diesel</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @clientes.each do |cliente| %>
-      <tr>
-        <td><%= cliente.credencial_cliente %></td>
-        <td><%= cliente.empresa_cliente %></td>
-        <td><%= cliente.responsable_cliente %></td>
-        <td><%= cliente.telefono_cliente %></td>
-        <td><%= cliente.email_cliente %></td>
-        <td><%= cliente.comisionista_cliente %></td>
-        <td><%= cliente.porcentage_cliente %></td>
-        <td><%= link_to 'Show', cliente %></td>
-        <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
-        <td><%= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @clientes.each do |cliente| %>
+        <tr>
+          <td><%= cliente.empresa_cliente %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= link_to 'Show', cliente %></td>
+          <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
+          <td><%= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<br>
-
-<%= link_to 'New Cliente', new_cliente_path %>
+  </div>
+</div>
