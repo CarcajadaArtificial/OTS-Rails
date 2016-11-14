@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112045007) do
+ActiveRecord::Schema.define(version: 20161112224024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(version: 20161112045007) do
     t.boolean  "AdminStatus"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "vehiculos", force: :cascade do |t|
+    t.string   "placas_vehiculo"
+    t.string   "marca_vehiculo"
+    t.string   "modelo_vehiculo"
+    t.string   "ano_vehiculo"
+    t.float    "rendimientohistorico_vehiculo"
+    t.string   "operador_vehiculo"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["placas_vehiculo"], name: "index_vehiculos_on_placas_vehiculo", using: :btree
   end
 
 end
