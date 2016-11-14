@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   resources :clientes
-  #root to: 'layouts#index'
-  get '/clientes/index' => 'clientes#index', as: :clientes_view
+  root to: 'layouts#index'
 
   Rails.application.routes.draw do
+    resources :clientes
     # devise_for :users, controllers: {
     #     registration: 'users/registration'
     # }
