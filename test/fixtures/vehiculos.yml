@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  placas_vehiculo: MyString
+  marca_vehiculo: MyString
+  modelo_vehiculo: MyString
+  ano_vehiculo: MyString
+  rendimientohistorico_vehiculo: 1.5
+  operador_vehiculo: MyString
+
+two:
+  placas_vehiculo: MyString
+  marca_vehiculo: MyString
+  modelo_vehiculo: MyString
+  ano_vehiculo: MyString
+  rendimientohistorico_vehiculo: 1.5
+  operador_vehiculo: MyString

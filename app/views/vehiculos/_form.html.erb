@@ -1,0 +1,47 @@
+<%= form_for(vehiculo) do |f| %>
+  <% if vehiculo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vehiculo.errors.count, "error") %> prohibited this vehiculo from being saved:</h2>
+
+      <ul>
+      <% vehiculo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :placas_vehiculo %>
+    <%= f.text_field :placas_vehiculo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :marca_vehiculo %>
+    <%= f.text_field :marca_vehiculo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :modelo_vehiculo %>
+    <%= f.text_field :modelo_vehiculo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ano_vehiculo %>
+    <%= f.text_field :ano_vehiculo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rendimientohistorico_vehiculo %>
+    <%= f.text_field :rendimientohistorico_vehiculo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :operador_vehiculo %>
+    <%= f.text_field :operador_vehiculo %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+<%= render 'layouts/navbar' %>
+
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <h2 style="text-align:center">Vehiculos</h2>
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th>Placas</th>
+            <th>Operador vehiculo</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Rendimiento</th>
+            <th>Ahorro</th>
+            <th>Litros Cargados</th>
+
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+  <tbody>
+    <% @vehiculos.each do |vehiculo| %>
+      <tr>
+        <td><%= vehiculo.placas_vehiculo %></td>
+        <td><%= vehiculo.operador_vehiculo %></td>
+        <td><%= vehiculo.marca_vehiculo %></td>
+        <td><%= vehiculo.modelo_vehiculo %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= link_to 'Show', vehiculo %></td>
+        <td><%= link_to 'Edit', edit_vehiculo_path(vehiculo) %></td>
+        <td><%= link_to 'Destroy', vehiculo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+</div>
+</div>

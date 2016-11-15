@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Placas vehiculo:</strong>
+  <%= @vehiculo.placas_vehiculo %>
+</p>
+
+<p>
+  <strong>Marca vehiculo:</strong>
+  <%= @vehiculo.marca_vehiculo %>
+</p>
+
+<p>
+  <strong>Modelo vehiculo:</strong>
+  <%= @vehiculo.modelo_vehiculo %>
+</p>
+
+<p>
+  <strong>Ano vehiculo:</strong>
+  <%= @vehiculo.ano_vehiculo %>
+</p>
+
+<p>
+  <strong>Rendimientohistorico vehiculo:</strong>
+  <%= @vehiculo.rendimientohistorico_vehiculo %>
+</p>
+
+<p>
+  <strong>Operador vehiculo:</strong>
+  <%= @vehiculo.operador_vehiculo %>
+</p>
+
+<%= link_to 'Edit', edit_vehiculo_path(@vehiculo) %> |
+<%= link_to 'Back', vehiculos_path %>
