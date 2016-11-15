@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'clientes/new'  => 'clientes#new',    as: :nuevo_cliente
   get 'vehiculos'     => 'vehiculos#index', as: :reporte_vehiculo
   get 'vehiculos/new' => 'vehiculos#new',   as: :nuevo_vehiculo
+  get 'recibos'       => 'recibos#index',   as: :reporte_recibo
+  get 'recibos/new'   => 'recibos#new',     as: :nuevo_recibo
 
   Rails.application.routes.draw do
   resources :recibos

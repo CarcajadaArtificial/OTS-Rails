@@ -19,6 +19,7 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <%= link_to "Cliente", reporte_cliente_path, type: "button", class: "btn btn-default btn-block"%>
               <%= link_to "Vehiculo", reporte_vehiculo_path, type: "button", class: "btn btn-default btn-block"%>
+              <%= link_to "Recibo", reporte_recibo_path, type: "button", class: "btn btn-default btn-block"%>
             </ulq>
 
           </div>
@@ -43,7 +44,7 @@
             Acciones
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <%= link_to "Cliente", reporte_cliente_path, type: "button", class: "btn btn-default btn-block"%>
+            <%= link_to "Recibo", nuevo_recibo_path, type: "button", class: "btn btn-default btn-block"%>
           </ul>
         </div>
         <% end %>
@@ -51,13 +52,6 @@
         <li class="nav-item">
           <%= link_to "Sign Out", destroy_user_session_path, type: "button", class: "btn btn-danger", :method => :delete%>
         </li>
-
-
-
-
-
-
-
 
       <% else %>
         <li class="nav-item">
