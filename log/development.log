@@ -12106,7 +12106,70 @@ Processing by ClientesController#new as HTML
 Completed 200 OK in 61ms (Views: 58.1ms | ActiveRecord: 0.5ms)
 
 
+<<<<<<< HEAD
+Started GET "/clientes/new" for 127.0.0.1 at 2016-11-14 17:07:53 -0600
+Processing by ClientesController#new as HTML
+  Rendering clientes/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (18.1ms)
+  Rendered clientes/_form.html.erb (27.7ms)
+  Rendered clientes/new.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 109ms (Views: 89.6ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-11-14 17:07:57 -0600
+Processing by ClientesController#index as HTML
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (2.4ms)
+  [1m[36mCliente Load (1.4ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  Rendered clientes/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 59ms (Views: 55.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-11-14 17:09:02 -0600
+Processing by ClientesController#index as HTML
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (13.1ms)
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  Rendered clientes/index.html.erb within layouts/application (26.4ms)
+Completed 200 OK in 85ms (Views: 81.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/clientes/new" for 127.0.0.1 at 2016-11-14 17:09:05 -0600
+Processing by ClientesController#new as HTML
+  Rendering clientes/new.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (4.4ms)
+  Rendered clientes/_form.html.erb (11.6ms)
+  Rendered clientes/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 83ms (Views: 80.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/clientes/new" for 127.0.0.1 at 2016-11-14 17:09:55 -0600
+Processing by ClientesController#new as HTML
+  Rendering clientes/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (4.3ms)
+  Rendered clientes/_form.html.erb (10.8ms)
+  Rendered clientes/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 76ms (Views: 73.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/clientes/new" for 127.0.0.1 at 2016-11-14 17:10:05 -0600
+Processing by ClientesController#new as HTML
+  Rendering clientes/new.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (2.7ms)
+  Rendered clientes/_form.html.erb (7.2ms)
+  Rendered clientes/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 57ms (Views: 54.5ms | ActiveRecord: 0.8ms)
+
+
+=======
 >>>>>>> a71794206818b4404869a7c1bdf5a35672499561
+<<<<<<< HEAD
   [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2487594885364776915);[0m
   [1m[36mActiveRecord::SchemaMigration Load (33.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[36mActiveRecord::InternalMetadata Load (13.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
@@ -12115,6 +12178,23 @@ Completed 200 OK in 61ms (Views: 58.1ms | ActiveRecord: 0.5ms)
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2487594885364776915)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35m (2.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
+>>>>>>> ab2f35a70ba7d10204d9509d4a23f7b13783df4c
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2487594885364776915);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateVehiculos (20161112224024)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (352.7ms)[0m  [1m[35mCREATE TABLE "vehiculos" ("id" serial primary key, "placas_vehiculo" character varying, "marca_vehiculo" character varying, "modelo_vehiculo" character varying, "ano_vehiculo" character varying, "rendimientohistorico_vehiculo" float, "operador_vehiculo" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (37.6ms)[0m  [1m[35mCREATE  INDEX  "index_vehiculos_on_placas_vehiculo" ON "vehiculos"  ("placas_vehiculo")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161112224024"]]
+  [1m[35m (23.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (33.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2487594885364776915)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> f9808016335bfe2d7630b8fdf5e88bff4a2a13e1
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -12126,7 +12206,11 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+<<<<<<< HEAD
   [1m[35m (1.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> f9808016335bfe2d7630b8fdf5e88bff4a2a13e1
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -12138,7 +12222,11 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+<<<<<<< HEAD
   [1m[35m (1.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> f9808016335bfe2d7630b8fdf5e88bff4a2a13e1
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -12150,6 +12238,7 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+<<<<<<< HEAD
 Started GET "/" for 127.0.0.1 at 2016-11-14 17:13:38 -0600
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
 Processing by LayoutsController#index as HTML
@@ -12521,3 +12610,9 @@ Processing by VehiculosController#index as HTML
 Completed 200 OK in 117ms (Views: 116.0ms | ActiveRecord: 0.6ms)
 
 
+=======
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@ots.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "AdminStatus" = $2 WHERE "users"."id" = $3[0m  [["updated_at", 2016-11-14 23:55:00 UTC], ["AdminStatus", true], ["id", 1]]
+  [1m[35m (19.1ms)[0m  [1m[35mCOMMIT[0m
+>>>>>>> f9808016335bfe2d7630b8fdf5e88bff4a2a13e1

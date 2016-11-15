@@ -9,9 +9,55 @@
     <ul class="nav navbar-nav pull-sm-right hidden-xs-down">
       <% if user_signed_in? %>
 
+        <% if current_user && current_user.AdminStatus? %>
+          <div class="dropdown nav-item">
+
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Reportes
+            </button>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <%= link_to "Cliente", reporte_cliente_path, type: "button", class: "btn btn-default btn-block"%>
+              <%= link_to "Vehiculo", reporte_vehiculo_path, type: "button", class: "btn btn-default btn-block"%>
+            </ulq>
+
+          </div>
+
+          <div class="dropdown nav-item">
+
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Dar de alta
+            </button>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <%= link_to "Cliente", nuevo_cliente_path, type: "button", class: "btn btn-default btn-block"%>
+              <%= link_to "Vehiculo", nuevo_vehiculo_path, type: "button", class: "btn btn-default btn-block"%>
+            </ul>
+
+          </div>
+
+        <% else %>
+
+        <div class="dropdown nav-item">
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Acciones
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <%= link_to "Cliente", reporte_cliente_path, type: "button", class: "btn btn-default btn-block"%>
+          </ul>
+        </div>
+        <% end %>
+
         <li class="nav-item">
           <%= link_to "Sign Out", destroy_user_session_path, type: "button", class: "btn btn-danger", :method => :delete%>
         </li>
+
+
+
+
+
+
+
 
       <% else %>
         <li class="nav-item">
