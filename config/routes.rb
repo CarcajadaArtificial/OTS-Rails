@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :recibos
   resources :vehiculos
   resources :clientes
   root to: 'layouts#index'
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   get 'vehiculos/new' => 'vehiculos#new',   as: :nuevo_vehiculo
 
   Rails.application.routes.draw do
+  resources :recibos
     # devise_for :users, controllers: {
     #     registration: 'users/registration'
     # }

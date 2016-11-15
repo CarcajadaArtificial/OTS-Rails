@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Recibos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Folio recibo</th>
+      <th>Kmanterior recibo</th>
+      <th>Kmactual recibo</th>
+      <th>Combustible recibo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recibos.each do |recibo| %>
+      <tr>
+        <td><%= recibo.folio_recibo %></td>
+        <td><%= recibo.kmanterior_recibo %></td>
+        <td><%= recibo.kmactual_recibo %></td>
+        <td><%= recibo.combustible_recibo %></td>
+        <td><%= link_to 'Show', recibo %></td>
+        <td><%= link_to 'Edit', edit_recibo_path(recibo) %></td>
+        <td><%= link_to 'Destroy', recibo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recibo', new_recibo_path %>

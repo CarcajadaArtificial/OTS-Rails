@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  folio_recibo: 1
+  kmanterior_recibo: 1.5
+  kmactual_recibo: 1.5
+  combustible_recibo: MyString
+
+two:
+  folio_recibo: 1
+  kmanterior_recibo: 1.5
+  kmactual_recibo: 1.5
+  combustible_recibo: MyString

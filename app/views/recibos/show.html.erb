@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Folio recibo:</strong>
+  <%= @recibo.folio_recibo %>
+</p>
+
+<p>
+  <strong>Kmanterior recibo:</strong>
+  <%= @recibo.kmanterior_recibo %>
+</p>
+
+<p>
+  <strong>Kmactual recibo:</strong>
+  <%= @recibo.kmactual_recibo %>
+</p>
+
+<p>
+  <strong>Combustible recibo:</strong>
+  <%= @recibo.combustible_recibo %>
+</p>
+
+<%= link_to 'Edit', edit_recibo_path(@recibo) %> |
+<%= link_to 'Back', recibos_path %>
