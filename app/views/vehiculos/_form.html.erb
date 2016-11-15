@@ -1,51 +1,57 @@
 <%= render 'layouts/navbar' %>
-<%= form_for(vehiculo) do |f| %>
-  <% if vehiculo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(vehiculo.errors.count, "error") %> prohibited this vehiculo from being saved:</h2>
+<div class="row">
+    <div class="col-md-4 offset-md-4" style="text-align: center">
 
-      <ul>
-      <% vehiculo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-    <div class="row">
-      <div class="col-md-4 offset-md-4" style="text-align: center">
-        <div class="field">
-          <%= f.label :placas_vehiculo, class: 'sr-only' %>
-          <%= f.text_field :placas_vehiculo, class: 'form-control', placeholder: 'Placas' %>
-        </div>
-        <br>
-        <div class="field">
-          <%= f.label :marca_vehiculo, class: 'sr-only' %>
-          <%= f.text_field :marca_vehiculo, class: 'form-control', placeholder: 'Marca' %>
-        </div>
-        <br>
-        <div class="field">
-          <%= f.label :modelo_vehiculo, class: 'sr-only' %>
-          <%= f.text_field :modelo_vehiculo, class: 'form-control', placeholder: 'Modelo' %>
-        </div>
-        <br>
-        <div class="field">
-          <%= f.label :ano_vehiculo, class: 'sr-only' %>
-          <%= f.text_field :ano_vehiculo, class: 'form-control', placeholder: 'Año' %>
-        </div>
-        <br>
-        <div class="field">
-          <%= f.label :rendimientohistorico_vehiculo, class: 'sr-only' %>
-          <%= f.text_field :rendimientohistorico_vehiculo, class: 'form-control', placeholder: 'Rendimiento Histórico' %>
-        </div>
-        <br>
-        <div class="field">
-          <%= f.label :operador_vehiculo, class: 'sr-only' %>
-          <%= f.text_field :operador_vehiculo, class: 'form-control', placeholder: 'Nombre del operador' %>
-        </div>
-        <br>
-        <div class="actions">
-          <%= f.submit "Crear", class: 'btn btn-lg btn-primary' %>
-        </div>
+      <%= form_for(vehiculo, html: {class: "form-signin"}) do |f| %>
+
+      <% if vehiculo.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(vehiculo.errors.count, "error") %> prohibited this vehiculo from being saved:</h2>
+        <ul>
+          <% vehiculo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
       </div>
-    </div>
-<% end %>
+      <% end %>
+
+      <h2>Vehículo nuevo</h2>
+      <br>
+      <div class="field">
+        <%= f.label :placas_vehiculo, class: 'sr-only' %>
+        <%= f.text_field :placas_vehiculo, class: 'form-control', placeholder: 'Placas' %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :marca_vehiculo, class: 'sr-only' %>
+        <%= f.text_field :marca_vehiculo, class: 'form-control', placeholder: 'Marca' %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :modelo_vehiculo, class: 'sr-only' %>
+        <%= f.text_field :modelo_vehiculo, class: 'form-control', placeholder: 'Modelo' %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :ano_vehiculo, class: 'sr-only' %>
+        <%= f.text_field :ano_vehiculo, class: 'form-control', placeholder: 'Año' %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :rendimientohistorico_vehiculo, class: 'sr-only' %>
+        <%= f.text_field :rendimientohistorico_vehiculo, class: 'form-control', placeholder: 'Rendimiento Histórico' %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :operador_vehiculo, class: 'sr-only' %>
+        <%= f.text_field :operador_vehiculo, class: 'form-control', placeholder: 'Nombre del operador' %>
+      </div>
+      <br>
+      <div class="actions">
+        <%= f.submit "Crear", class: 'btn btn-lg btn-primary' %>
+      </div>
+
+      <% end %>
+
+  </div>
+</div>
