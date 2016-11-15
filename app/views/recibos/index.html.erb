@@ -20,20 +20,19 @@
 
       <tbody>
         <% @recibos.each do |recibo| %>
-          <tr>
-            <td><%= recibo.folio_recibo %></td>
-            <td><%= recibo.kmanterior_recibo %></td>
-            <td><%= recibo.kmactual_recibo %></td>
-            <td><%= recibo.combustible_recibo %></td>
-            <td></td>
-            <td><%= link_to 'Show', recibo %></td>
-            <td><%= link_to 'Edit', edit_recibo_path(recibo) %></td>
-            <td><%= link_to 'Destroy', recibo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
+        <tr>
+          <td><%= recibo.folio_recibo %></td>
+          <td><%= recibo.kmanterior_recibo %></td>
+          <td><%= recibo.kmactual_recibo %></td>
+          <td><%= recibo.combustible_recibo %></td>
+          <td></td>
+          <td><%= link_to 'Show', recibo %></td>
+          <td><%= link_to 'Edit', edit_recibo_path(recibo) %></td>
+          <td><%= link_to 'Destroy', recibo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
         <% end %>
       </tbody>
     </table>
-
-<br>
-
-<%= link_to 'New Recibo', new_recibo_path %>
+    <br>
+  </div>
+</div>
