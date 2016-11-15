@@ -1,37 +1,44 @@
-<%= form_for(recibo) do |f| %>
-  <% if recibo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(recibo.errors.count, "error") %> prohibited this recibo from being saved:</h2>
+<%= render 'layouts/navbar' %>
 
-      <ul>
-      <% recibo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="row">
+  <div class="col-md-4 offset-md-4" style="text-align: center">
+    <%= form_for(recibo, html: {class: "form-signin"}) do |f| %>
+
+      <% if recibo.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(recibo.errors.count, "error") %> prohibited this recibo from being saved:</h2>
+
+        <ul>
+          <% recibo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :folio_recibo %>
-    <%= f.number_field :folio_recibo %>
-  </div>
+      <h2>Recibo nuevo</h2>
+      <br>
+      <input type="text" class="form-control" placeholder="Placa">
+      <br>
+      <div class="field">
+        <%= f.label :kmactual_recibo, class: 'sr-only'%>
+        <%= f.number_field :kmactual_recibo, class: 'form-control', placeholder: 'Kilometraje actual' %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :combustible_recibo, class: 'sr-only' %>
+        <%= f.number_field :combustible_recibo, class: 'form-control', placeholder: 'Litros de combustible' %>
+      </div>
+      <br>
+      <input type="number" class="form-control" placeholder="Cantidad de sobres">
+      <br>
+      <em>Fotografía del recibo de carga de gasolina.</em>
+      <input type="File" class="form-control" placeholder="Placa">
+      <br>
+      <div class="actions">
+        <%= f.submit "Crear", class: 'btn btn-lg btn-primary' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :kmanterior_recibo %>
-    <%= f.text_field :kmanterior_recibo %>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :kmactual_recibo %>
-    <%= f.text_field :kmactual_recibo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :combustible_recibo %>
-    <%= f.text_field :combustible_recibo %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
