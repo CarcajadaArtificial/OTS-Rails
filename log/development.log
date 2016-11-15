@@ -12107,3 +12107,417 @@ Completed 200 OK in 61ms (Views: 58.1ms | ActiveRecord: 0.5ms)
 
 
 >>>>>>> a71794206818b4404869a7c1bdf5a35672499561
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2487594885364776915);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (33.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (13.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2487594885364776915)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'clientes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'vehiculos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+Started GET "/" for 127.0.0.1 at 2016-11-14 17:13:38 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LayoutsController#index as HTML
+  Rendering layouts/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (6.2ms)
+  Rendered layouts/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 328ms (Views: 319.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-11-14 17:13:41 -0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (62.0ms)
+Completed 200 OK in 139ms (Views: 126.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-11-14 17:13:49 -0600
+Processing by ClientesController#index as HTML
+  Rendering clientes/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.2ms)
+  [1m[36mCliente Load (4.4ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  Rendered clientes/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 130ms (Views: 41.0ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/clientes/nre" for 127.0.0.1 at 2016-11-14 17:14:03 -0600
+Processing by ClientesController#show as HTML
+  Parameters: {"id"=>"nre"}
+  [1m[36mCliente Load (0.3ms)[0m  [1m[34mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 8ms (ActiveRecord: 1.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Cliente with 'id'=nre):
+  
+app/controllers/clientes_controller.rb:67:in `set_cliente'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.5ms)
+Started GET "/clientes/new" for 127.0.0.1 at 2016-11-14 17:14:07 -0600
+Processing by ClientesController#new as HTML
+  Rendering clientes/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.1ms)
+  Rendered clientes/_form.html.erb (9.9ms)
+  Rendered clientes/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 48ms (Views: 41.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/vehiculos/new" for 127.0.0.1 at 2016-11-14 17:22:46 -0600
+Processing by VehiculosController#new as HTML
+  Rendering vehiculos/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.6ms)
+  Rendered vehiculos/_form.html.erb (3.8ms)
+  Rendered vehiculos/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 65ms (Views: 49.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/vehiculos/new" for 127.0.0.1 at 2016-11-14 17:25:33 -0600
+Processing by VehiculosController#new as HTML
+  Rendering vehiculos/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.2ms)
+  Rendered vehiculos/_form.html.erb (7.9ms)
+  Rendered vehiculos/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 57ms (Views: 54.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/vehiculos" for 127.0.0.1 at 2016-11-14 17:25:40 -0600
+Processing by VehiculosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JPLEn2KHnHiKZ1PsKY4hUpFQ8X2HWTwcWeCnNnpSXCwUsmfM6fNsNH/YiU8+9P+YNTwaZ7K51Az3r3DIXPgjqA==", "vehiculo"=>{"placas_vehiculo"=>"", "marca_vehiculo"=>"", "modelo_vehiculo"=>"", "ano_vehiculo"=>"", "rendimientohistorico_vehiculo"=>"", "operador_vehiculo"=>""}, "commit"=>"Crear"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (26.8ms)[0m  [1m[32mINSERT INTO "vehiculos" ("placas_vehiculo", "marca_vehiculo", "modelo_vehiculo", "ano_vehiculo", "operador_vehiculo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["placas_vehiculo", ""], ["marca_vehiculo", ""], ["modelo_vehiculo", ""], ["ano_vehiculo", ""], ["operador_vehiculo", ""], ["created_at", 2016-11-14 23:25:40 UTC], ["updated_at", 2016-11-14 23:25:40 UTC]]
+  [1m[35m (16.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/vehiculos/6
+Completed 302 Found in 47ms (ActiveRecord: 43.8ms)
+
+
+Started GET "/vehiculos/6" for 127.0.0.1 at 2016-11-14 17:25:40 -0600
+Processing by VehiculosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mVehiculo Load (0.3ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering vehiculos/show.html.erb within layouts/application
+  Rendered vehiculos/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/vehiculos" for 127.0.0.1 at 2016-11-14 17:25:52 -0600
+Processing by VehiculosController#index as HTML
+  Rendering vehiculos/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  [1m[36mVehiculo Load (0.5ms)[0m  [1m[34mSELECT "vehiculos".* FROM "vehiculos"[0m
+  Rendered vehiculos/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 37ms (Views: 35.6ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/vehiculos/6" for 127.0.0.1 at 2016-11-14 17:25:58 -0600
+Processing by VehiculosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"aw/FPF4imMYZyJkvHVEglkKiuQEeV1/E6m82Mncw2JxbT2Zv1VZoiux3Q4wKK/5c5s5SGyu3t9REIOHMUZqnGA==", "id"=>"6"}
+  [1m[36mVehiculo Load (1.3ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "vehiculos" WHERE "vehiculos"."id" = $1[0m  [["id", 6]]
+  [1m[35m (64.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/vehiculos
+Completed 302 Found in 70ms (ActiveRecord: 66.2ms)
+
+
+Started GET "/vehiculos" for 127.0.0.1 at 2016-11-14 17:25:58 -0600
+Processing by VehiculosController#index as HTML
+  Rendering vehiculos/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.5ms)
+  [1m[36mVehiculo Load (0.3ms)[0m  [1m[34mSELECT "vehiculos".* FROM "vehiculos"[0m
+  Rendered vehiculos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-11-14 17:27:07 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 104ms (Views: 51.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-11-14 17:27:17 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KvNvkEDmAYm7eC8C8POfT3BzkdTe18iE0aPOASMrxABmMSQm5NqIIdAavzr5JxV5A9OzirK/BNB3MrhaEdDx/A==", "user"=>{"email"=>"admin@ots.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (17.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@ots.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 23ms (ActiveRecord: 17.2ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KvNvkEDmAYm7eC8C8POfT3BzkdTe18iE0aPOASMrxABmMSQm5NqIIdAavzr5JxV5A9OzirK/BNB3MrhaEdDx/A==", "user"=>{"email"=>"admin@ots.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 310ms (Views: 27.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-11-14 17:27:29 -0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 41ms (Views: 40.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-11-14 17:27:53 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 44ms (Views: 42.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/vehiculos" for 127.0.0.1 at 2016-11-14 17:28:08 -0600
+Processing by VehiculosController#index as HTML
+  Rendering vehiculos/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.1ms)
+  [1m[36mVehiculo Load (0.3ms)[0m  [1m[34mSELECT "vehiculos".* FROM "vehiculos"[0m
+  Rendered vehiculos/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 45ms (Views: 43.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-11-14 17:28:17 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 36ms (Views: 35.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-11-14 17:28:26 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zT4iB9/d2z1rWhP0fuwVVDJnONPqlDneUhtazeoiZHWB/Gmxe+FSlQA4g8x3OJ9iQccajYb89Yr0iiyW2NlRiQ==", "user"=>{"email"=>"admin@ots.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@ots.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zT4iB9/d2z1rWhP0fuwVVDJnONPqlDneUhtazeoiZHWB/Gmxe+FSlQA4g8x3OJ9iQccajYb89Yr0iiyW2NlRiQ==", "user"=>{"email"=>"admin@ots.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 164ms (Views: 38.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/vehiculos" for 127.0.0.1 at 2016-11-14 17:28:45 -0600
+Processing by VehiculosController#index as HTML
+  Rendering vehiculos/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.7ms)
+  [1m[36mVehiculo Load (0.4ms)[0m  [1m[34mSELECT "vehiculos".* FROM "vehiculos"[0m
+  Rendered vehiculos/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 52ms (Views: 50.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-11-14 17:28:52 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-11-14 17:29:00 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6bknz25on+C9n5EphSPfh7fxd+M7T+baiz5oeG9zd9Kle2x5ylQWSNb9ARGM91WxxFFVvVcnKo4trx4jXYhCLg==", "user"=>{"email"=>"admin@ots.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@ots.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.9ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6bknz25on+C9n5EphSPfh7fxd+M7T+baiz5oeG9zd9Kle2x5ylQWSNb9ARGM91WxxFFVvVcnKo4trx4jXYhCLg==", "user"=>{"email"=>"admin@ots.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 155ms (Views: 27.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-11-14 17:29:04 -0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 42ms (Views: 41.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-11-14 17:29:28 -0600
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aSNJMXhfxqZTbB9tZljnO8sKYoCDjm4iziL/Rw1F4O/H9mqyr5H1hq4pD7yewWxHlW/7H02I5jp2Kn05f1F3tA==", "user"=>{"email"=>"admin@ots.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Crear"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@ots.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 266ms (Views: 31.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-11-14 17:29:38 -0600
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nHqKGw5P+aYJ19KoZFECDFUL0TtmJLH2XrMgFWvk8rmsOilIhTsJ6vxoCAtzK9zG8Wc6IVPEWebw/PfrTU6NPQ==", "user"=>{"email"=>"admin@ots.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Crear"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@ots.com"], ["LIMIT", 1]]
+  [1m[35mSQL (89.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@ots.com"], ["encrypted_password", "$2a$11$q8l7mxJFN8CV0y/G3BVemeBa6XC3Hm1FiFtYsx2njfVeLDwFY46GW"], ["created_at", 2016-11-14 23:29:39 UTC], ["updated_at", 2016-11-14 23:29:39 UTC]]
+  [1m[35m (23.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", 2016-11-14 23:29:39 UTC], ["last_sign_in_at", 2016-11-14 23:29:39 UTC], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", 2016-11-14 23:29:39 UTC], ["id", 2]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 251ms (ActiveRecord: 119.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-14 17:29:39 -0600
+Processing by LayoutsController#index as HTML
+  Rendering layouts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (1.8ms)
+  Rendered layouts/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-11-14 17:30:13 -0600
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"hPHg48mRkZRW+LVACAoI9v0jD3+6z/bJJ98I5AM1Ywq0sUOwQuVh2KNHb+MfcNY8WU/kZY8vHtmJkN8aJZ8cjg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 85ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-14 17:30:13 -0600
+Processing by LayoutsController#index as HTML
+  Rendering layouts/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.6ms)
+  Rendered layouts/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-11-14 17:30:16 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 38ms (Views: 37.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-11-14 17:30:21 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VaVqSPTAq+4HM2eYfgJ0eUPmit8n6wgTBkzP4e0fy+ANhyPjbl/Dol2f+fTDFMb6cg9WUAChyT/f30ssmDdutA==", "user"=>{"email"=>"admin@ots.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@ots.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", 2016-11-14 23:30:22 UTC], ["sign_in_count", 2], ["updated_at", 2016-11-14 23:30:22 UTC], ["id", 2]]
+  [1m[35m (45.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 191ms (ActiveRecord: 46.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-14 17:30:22 -0600
+Processing by LayoutsController#index as HTML
+  Rendering layouts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (2.6ms)
+  Rendered layouts/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 57ms (Views: 56.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/vehiculos" for 127.0.0.1 at 2016-11-14 17:33:50 -0600
+Processing by VehiculosController#index as HTML
+  Rendering vehiculos/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (5.1ms)
+  [1m[36mVehiculo Load (0.4ms)[0m  [1m[34mSELECT "vehiculos".* FROM "vehiculos"[0m
+  Rendered vehiculos/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 92ms (Views: 89.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/vehiculos/new" for 127.0.0.1 at 2016-11-14 17:33:56 -0600
+Processing by VehiculosController#new as HTML
+  Rendering vehiculos/new.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (2.3ms)
+  Rendered vehiculos/_form.html.erb (8.0ms)
+  Rendered vehiculos/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 56ms (Views: 54.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/vehiculos/new" for 127.0.0.1 at 2016-11-14 17:34:15 -0600
+Processing by VehiculosController#new as HTML
+  Rendering vehiculos/new.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (4.0ms)
+  Rendered vehiculos/_form.html.erb (9.2ms)
+  Rendered vehiculos/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 53ms (Views: 49.5ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/vehiculos" for 127.0.0.1 at 2016-11-14 17:37:28 -0600
+Processing by VehiculosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xKlzAyxh6h9UW317EeUbIWJQYrIMGAKIwJJTlPpgnD85oXngp5VpTvSyN/S5aoxb8xMRXP0NRIXRltWdeqdCqA==", "vehiculo"=>{"placas_vehiculo"=>"TSI3819", "marca_vehiculo"=>"Nissan", "modelo_vehiculo"=>"Altima", "ano_vehiculo"=>"2013", "rendimientohistorico_vehiculo"=>"8.8", "operador_vehiculo"=>"José Rodriguez "}, "commit"=>"Crear"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "vehiculos" ("placas_vehiculo", "marca_vehiculo", "modelo_vehiculo", "ano_vehiculo", "rendimientohistorico_vehiculo", "operador_vehiculo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["placas_vehiculo", "TSI3819"], ["marca_vehiculo", "Nissan"], ["modelo_vehiculo", "Altima"], ["ano_vehiculo", "2013"], ["rendimientohistorico_vehiculo", 8.8], ["operador_vehiculo", "José Rodriguez "], ["created_at", 2016-11-14 23:37:28 UTC], ["updated_at", 2016-11-14 23:37:28 UTC]]
+  [1m[35m (101.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/vehiculos/7
+Completed 302 Found in 106ms (ActiveRecord: 102.4ms)
+
+
+Started GET "/vehiculos/7" for 127.0.0.1 at 2016-11-14 17:37:28 -0600
+Processing by VehiculosController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mVehiculo Load (0.2ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering vehiculos/show.html.erb within layouts/application
+  Rendered vehiculos/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 38ms (Views: 35.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/vehiculos" for 127.0.0.1 at 2016-11-14 17:38:42 -0600
+Processing by VehiculosController#index as HTML
+  Rendering vehiculos/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (1.8ms)
+  [1m[36mVehiculo Load (0.3ms)[0m  [1m[34mSELECT "vehiculos".* FROM "vehiculos"[0m
+  Rendered vehiculos/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 117ms (Views: 116.0ms | ActiveRecord: 0.6ms)
+
+
