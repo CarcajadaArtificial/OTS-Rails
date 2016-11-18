@@ -1,6 +1,8 @@
 class VehiculosController < ApplicationController
   before_action :set_vehiculo, only: [:show, :edit, :update, :destroy]
 
+  helper_method :litros_vehiculo
+
   # GET /vehiculos
   # GET /vehiculos.json
   def index

@@ -23,10 +23,9 @@
           <td><%= recibo.kmanterior_recibo %></td>
           <td><%= recibo.kmactual_recibo %></td>
           <td><%= recibo.combustible_recibo %></td>
-          <td></td>
-          <td><%= link_to 'Show', recibo %></td>
-          <td><%= link_to 'Edit', edit_recibo_path(recibo) %></td>
-          <td><%= link_to 'Destroy', recibo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= recibo.sobres_recibo %></td>
+          <td><%= link_to 'Detalles', recibo %></td>
+          <td><%= link_to 'Eliminar', recibo, method: :delete, data: { confirm: '¿Estás seguro de eliminar este recibo?' } %></td>
         </tr>
         <% end %>
       </tbody>

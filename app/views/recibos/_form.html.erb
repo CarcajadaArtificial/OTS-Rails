@@ -18,7 +18,10 @@
 
       <h2>Recibo nuevo</h2>
       <br>
-      <input type="text" class="form-control" placeholder="Placa">
+      <div class="field">
+        <%= f.label :placas_recibo, class: 'sr-only'%>
+        <%= f.text_field :placas_recibo, class: 'form-control', placeholder: 'Placas' %>
+      </div>
       <br>
       <div class="field">
         <%= f.label :kmactual_recibo, class: 'sr-only'%>

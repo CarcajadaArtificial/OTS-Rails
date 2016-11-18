@@ -1,52 +1,59 @@
 <%= render 'layouts/navbar' %>
-<p id="notice"><%= notice %></p>
 
 <div class="row">
   <div class="col-md-4 offset-md-4" style="text-align: center">
     <h4><%= @cliente.empresa_cliente %></h4>
-    <div class="card">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <p>
-            <strong>Credencial</strong><br>
-            <%= @cliente.credencial_cliente %>
-          </p>
-        </li>
-        <li class="list-group-item">
-          <p>
-            <strong>Nombre de representante</strong><br>
-            <%= @cliente.responsable_cliente %>
-          </p>
-        </li>
-        <li class="list-group-item">
-          <p>
-            <strong>Teléfono</strong><br>
-            <%= @cliente.telefono_cliente %>
-          </p>
-        </li>
-        <li class="list-group-item">
-          <p>
-            <strong>Correo electrónico</strong><br>
-            <%= @cliente.email_cliente %>
-          </p>
-        </li>
-        <li class="list-group-item">
-          <p>
-            <strong>Nombre del comisionista:</strong><br>
-            <%= @cliente.comisionista_cliente %>
-          </p>
-        </li>
-        <li class="list-group-item">
-          <p>
-            <strong>Porcentage para el comisionista:</strong><br>
-            <%= @cliente.porcentage_cliente %>
-          </p>
-        </li>
-      </ul>
-    </div>
+
+    <table class="table">
+      <tr>
+        <td>
+          <strong>Credencial</strong>
+        </td>
+        <td>
+          <p><%= @cliente.credencial_cliente %></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Contacto</strong>
+        </td>
+        <td>
+          <p><%= @cliente.responsable_cliente %></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Teléfono</strong>
+        </td>
+        <td>
+          <p><%= @cliente.telefono_cliente %></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Correo electrónico</strong>
+        </td>
+        <td>
+          <p><%= @cliente.email_cliente %></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Comisionista</strong>
+        </td>
+        <td>
+          <p><%= @cliente.comisionista_cliente %></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Porcentage</strong>
+        </td>
+        <td>
+          <p><%= @cliente.porcentage_cliente %></p>
+        </td>
+      </tr>
+    </table>
+    <%= link_to 'Editar', edit_cliente_path(@cliente), class: 'btn btn-warning' %>
   </div>
 </div>
-
-
-<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
-<%= link_to 'Back', clientes_path %>

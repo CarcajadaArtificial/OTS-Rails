@@ -34,11 +34,10 @@ ActiveRecord::Schema.define(version: 20161115002933) do
     t.float    "kmactual_recibo"
     t.float    "combustible_recibo"
     t.float    "sobres_recibo"
-    t.integer  "vehiculo_id"
+    t.string   "placas_recibo"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["folio_recibo"], name: "index_recibos_on_folio_recibo", using: :btree
-    t.index ["vehiculo_id"], name: "index_recibos_on_vehiculo_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

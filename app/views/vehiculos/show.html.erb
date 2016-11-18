@@ -1,34 +1,50 @@
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/navbar' %>
 
-<p>
-  <strong>Placas vehiculo:</strong>
-  <%= @vehiculo.placas_vehiculo %>
-</p>
-
-<p>
-  <strong>Marca vehiculo:</strong>
-  <%= @vehiculo.marca_vehiculo %>
-</p>
-
-<p>
-  <strong>Modelo vehiculo:</strong>
-  <%= @vehiculo.modelo_vehiculo %>
-</p>
-
-<p>
-  <strong>Ano vehiculo:</strong>
-  <%= @vehiculo.ano_vehiculo %>
-</p>
-
-<p>
-  <strong>Rendimientohistorico vehiculo:</strong>
-  <%= @vehiculo.rendimientohistorico_vehiculo %>
-</p>
-
-<p>
-  <strong>Operador vehiculo:</strong>
-  <%= @vehiculo.operador_vehiculo %>
-</p>
-
-<%= link_to 'Edit', edit_vehiculo_path(@vehiculo) %> |
-<%= link_to 'Back', vehiculos_path %>
+<div class="row">
+  <div class="col-md-4 offset-md-4" style="text-align: center">
+    <h4><%= @vehiculo.placas_vehiculo %></h4>
+    <table class="table">
+      <tr>
+        <td>
+          <strong>Marca</strong>
+        </td>
+        <td>
+          <p><%= @vehiculo.marca_vehiculo %></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Modelo</strong>
+        </td>
+        <td>
+          <p><%= @vehiculo.modelo_vehiculo %></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Año</strong>
+        </td>
+        <td>
+          <p><%= @vehiculo.ano_vehiculo %></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Rendimiento Histórico</strong>
+        </td>
+        <td>
+          <p><%= @vehiculo.rendimientohistorico_vehiculo %></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Operador</strong>
+        </td>
+        <td>
+          <p><%= @vehiculo.operador_vehiculo %></p>
+        </td>
+      </tr>
+    </table>
+    <%= link_to 'Edit', edit_vehiculo_path(@vehiculo), class: "btn btn-warning" %>  
+  </div>
+</div>
