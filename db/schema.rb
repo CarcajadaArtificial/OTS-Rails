@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20161115002933) do
     t.string   "ano_vehiculo"
     t.float    "rendimientohistorico_vehiculo"
     t.string   "operador_vehiculo"
+    t.string   "credencialcliente_vehiculo"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.index ["placas_vehiculo"], name: "index_vehiculos_on_placas_vehiculo", using: :btree
