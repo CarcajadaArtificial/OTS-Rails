@@ -4,7 +4,9 @@ class CreateRecibos < ActiveRecord::Migration[5.0]
       t.integer :folio_recibo
       t.float :kmanterior_recibo
       t.float :kmactual_recibo
-      t.string :combustible_recibo
+      t.float :combustible_recibo
+      t.float :sobres_recibo
+      t.belongs_to :vehiculo, index: true
 
       t.timestamps
     end

@@ -26,9 +26,9 @@
           <td></td>
           <td></td>
           <td></td>
-          <td><%= link_to 'Show', cliente, class: "btn btn-default btn-xs" %></td>
-          <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
-          <td><%= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Detalles', cliente %></td>
+          <td><%= link_to 'Editar', edit_cliente_path(cliente)%></td>
+          <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: '¿Estás seguro de eliminar a este cliente?' } %></td>
         </tr>
         <% end %>
       </tbody>

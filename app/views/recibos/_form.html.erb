@@ -30,7 +30,10 @@
         <%= f.number_field :combustible_recibo, class: 'form-control', placeholder: 'Litros de combustible' %>
       </div>
       <br>
-      <input type="number" class="form-control" placeholder="Cantidad de sobres">
+      <div class="field">
+        <%= f.label :sobres_recibo, class: 'sr-only' %>
+        <%= f.number_field :sobres_recibo, class: 'form-control', placeholder: 'Cantidad de sobres' %>
+      </div>
       <br>
       <em>Fotografía del recibo de carga de gasolina.</em>
       <input type="File" class="form-control" placeholder="Placa">
