@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(version: 20161115002933) do
   enable_extension "plpgsql"
 
   create_table "clientes", force: :cascade do |t|
-    t.string   "credencial_cliente"
-    t.string   "empresa_cliente"
-    t.string   "responsable_cliente"
-    t.integer  "telefono_cliente"
-    t.string   "email_cliente"
-    t.string   "comisionista_cliente"
-    t.float    "porcentage_cliente"
+    t.string   "credencial_cliente",   null: false
+    t.string   "empresa_cliente",      null: false
+    t.string   "responsable_cliente",  null: false
+    t.bigint   "telefono_cliente",     null: false
+    t.string   "email_cliente",        null: false
+    t.string   "comisionista_cliente", null: false
+    t.float    "porcentage_cliente",   null: false
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.index ["credencial_cliente"], name: "index_clientes_on_credencial_cliente", using: :btree
@@ -31,41 +31,41 @@ ActiveRecord::Schema.define(version: 20161115002933) do
   create_table "recibos", force: :cascade do |t|
     t.integer  "folio_recibo"
     t.float    "kmanterior_recibo"
-    t.float    "kmactual_recibo"
-    t.float    "combustible_recibo"
-    t.float    "sobres_recibo"
-    t.string   "placas_recibo"
+    t.float    "kmactual_recibo",    null: false
+    t.float    "combustible_recibo", null: false
+    t.float    "sobres_recibo",      null: false
+    t.string   "placas_recibo",      null: false
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["folio_recibo"], name: "index_recibos_on_folio_recibo", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",   null: false
+    t.string   "encrypted_password",     default: "",   null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,    null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.boolean  "AdminStatus"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.boolean  "AdminStatus",            default: true
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "vehiculos", force: :cascade do |t|
-    t.string   "placas_vehiculo"
-    t.string   "marca_vehiculo"
-    t.string   "modelo_vehiculo"
-    t.string   "ano_vehiculo"
-    t.float    "rendimientohistorico_vehiculo"
-    t.string   "operador_vehiculo"
-    t.string   "credencialcliente_vehiculo"
+    t.string   "placas_vehiculo",               null: false
+    t.string   "marca_vehiculo",                null: false
+    t.string   "modelo_vehiculo",               null: false
+    t.string   "ano_vehiculo",                  null: false
+    t.float    "rendimientohistorico_vehiculo", null: false
+    t.string   "operador_vehiculo",             null: false
+    t.string   "credencialcliente_vehiculo",    null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.index ["placas_vehiculo"], name: "index_vehiculos_on_placas_vehiculo", using: :btree

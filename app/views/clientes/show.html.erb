@@ -57,3 +57,40 @@
     <%= link_to 'Editar', edit_cliente_path(@cliente), class: 'btn btn-warning' %>
   </div>
 </div>
+<br>
+<br>
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th>Placas</th>
+          <th>Operador vehiculo</th>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>Rendimiento</th>
+          <th>Ahorro</th>
+          <th>Litros Cargados</th>
+          <th>Detalles</th>
+          <th>Eliminar</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody style="text-align:center">
+        <% Vehiculo.where(:credencialcliente_vehiculo => @cliente.credencial_cliente).each do |vehiculo| %>
+        <tr>
+          <td><%= vehiculo.placas_vehiculo %></td>
+          <td><%= vehiculo.operador_vehiculo %></td>
+          <td><%= vehiculo.marca_vehiculo %></td>
+          <td><%= vehiculo.modelo_vehiculo %></td>
+          <td></td>
+          <td></td>
+          <td><%= Recibo.where(:placas_recibo => vehiculo.placas_vehiculo).sum(:combustible_recibo) %></td>
+          <td><%= link_to '', vehiculo, class: 'btn btn-info' %></td>
+          <td><%= link_to '', vehiculo, method: :delete, data: { confirm: '¿Estás seguro de eliminar este vehículo?' }, class: 'btn btn-danger' %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

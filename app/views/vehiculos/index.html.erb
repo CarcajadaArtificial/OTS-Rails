@@ -13,10 +13,12 @@
           <th>Rendimiento</th>
           <th>Ahorro</th>
           <th>Litros Cargados</th>
+          <th>Detalles</th>
+          <th>Eliminar</th>
           <th colspan="3"></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody style="text-align:center">
         <% @vehiculos.each do |vehiculo| %>
         <tr>
           <td><%= vehiculo.placas_vehiculo %></td>
@@ -26,8 +28,8 @@
           <td></td>
           <td></td>
           <td><%= Recibo.where(:placas_recibo => vehiculo.placas_vehiculo).sum(:combustible_recibo) %></td>
-          <td><%= link_to 'Detalles', vehiculo %></td>
-          <td><%= link_to 'Eliminar', vehiculo, method: :delete, data: { confirm: '¿Estás seguro de eliminar este vehículo?' } %></td>
+          <td><%= link_to '', vehiculo, class: 'btn btn-info' %></td>
+          <td><%= link_to '', vehiculo, method: :delete, data: { confirm: '¿Estás seguro de eliminar este vehículo?' }, class: 'btn btn-danger' %></td>
         </tr>
         <% end %>
       </tbody>

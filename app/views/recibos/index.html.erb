@@ -4,28 +4,31 @@
   <div class="col-md-10 offset-md-1">
     <h2 style="text-align:center">Recibos</h2>
     <br>
-    <table class="table table-responsive">
-      <thead>
+    <table class="table table-responsive"  style="text-align:center">
+      <tbody style="text-align:center">
         <tr>
           <th>Folio recibo</th>
+          <th>Placas</th>
+          <th>Compañía</th>
           <th>Kilometraje anterior</th>
           <th>Kilometraje actual</th>
           <th>Combustible recibo</th>
           <th>Sobres aplicados</th>
+          <th>Detalles</th>
+          <th>Eliminar</th>
           <th colspan="3"></th>
         </tr>
-      </thead>
-
-      <tbody>
         <% @recibos.each do |recibo| %>
         <tr>
-          <td><%= recibo.folio_recibo %></td>
+          <td><%= recibo.id %></td>
+          <th><%= recibo.placas_recibo %></th>
+          <th><%= Cliente.where(:credencial_cliente => Vehiculo.where(:placas_vehiculo => recibo.placas_recibo).first.credencialcliente_vehiculo).first.empresa_cliente %></th>
           <td><%= recibo.kmanterior_recibo %></td>
           <td><%= recibo.kmactual_recibo %></td>
           <td><%= recibo.combustible_recibo %></td>
           <td><%= recibo.sobres_recibo %></td>
-          <td><%= link_to 'Detalles', recibo %></td>
-          <td><%= link_to 'Eliminar', recibo, method: :delete, data: { confirm: '¿Estás seguro de eliminar este recibo?' } %></td>
+          <td><%= link_to '', recibo, class: 'btn btn-info' %></td>
+          <td><%= link_to '', recibo, method: :delete, data: { confirm: '¿Estás seguro de eliminar este recibo?' }, class: 'btn btn-danger' %></td>
         </tr>
         <% end %>
       </tbody>

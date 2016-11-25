@@ -1,9 +1,18 @@
 <%= render 'layouts/navbar' %>
 
-<div class="row">
-  <div class="col-md-4 offset-md-4" style="text-align: center">
-    <h4><%= @recibo.folio_recibo %></h4>
+<div class="row" style="text-align: center">
+  <!-- División de información de recibo -->
+  <div class="col-md-3">
+    <h4>Recibo</h4>
     <table class="table">
+      <tr>
+        <td>
+          <strong>Folio</strong>
+        </td>
+        <td>
+          <strong><%= @recibo.id %></strong>
+        </td>
+      </tr>
       <tr>
         <td>
           <strong>Kilometraje anterior</strong>
@@ -28,7 +37,135 @@
           <p><%= @recibo.combustible_recibo %></p>
         </td>
       </tr>
+      <tr>
+        <td>
+          <strong>Cantidad de sobres</strong>
+        </td>
+        <td>
+          <p><%= @recibo.sobres_recibo %></p>
+        </td>
+      </tr>
     </table>
-    <%= link_to 'Edit', edit_recibo_path(@recibo), class: "btn btn-warning" %>
+    <%= link_to 'Editar', edit_recibo_path(@recibo), class: "btn btn-warning" %>
+  </div>
+  <!-- División de información de representante-->
+  <div class="col-md-3">
+    <h4>Representante</h4>
+  </div>
+  <!-- División de información de vehículo -->
+  <div class="col-md-3">
+    <h4>Vehículo</h4>
+    <table class="table">
+      <tr>
+        <td>
+          <strong>Placas</strong>
+        </td>
+        <td>
+          <%= @recibo.placas_recibo %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Marca</strong>
+        </td>
+        <td>
+          <%= Vehiculo.where(:placas_vehiculo => @recibo.placas_recibo).first.marca_vehiculo %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Modelo</strong>
+        </td>
+        <td>
+          <%= Vehiculo.where(:placas_vehiculo => @recibo.placas_recibo).first.modelo_vehiculo %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Año</strong>
+        </td>
+        <td>
+          <%= Vehiculo.where(:placas_vehiculo => @recibo.placas_recibo).first.ano_vehiculo %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Rendimiento histórico</strong>
+        </td>
+        <td>
+          <%= Vehiculo.where(:placas_vehiculo => @recibo.placas_recibo).first.rendimientohistorico_vehiculo %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Operador</strong>
+        </td>
+        <td>
+          <%= Vehiculo.where(:placas_vehiculo => @recibo.placas_recibo).first.operador_vehiculo %>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!-- División de información de cliente -->
+  <div class="col-md-3">
+    <h4>Cliente</h4>
+    <table class="table">
+      <tr>
+        <td>
+          <strong>Credencial del cliente</strong>
+        </td>
+        <td>
+          <%= Vehiculo.where(:placas_vehiculo => @recibo.placas_recibo).first.credencialcliente_vehiculo %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Empresa</strong>
+        </td>
+        <td>
+          <%= Cliente.where(:credencial_cliente => Vehiculo.where(:placas_vehiculo => @recibo.placas_recibo).first.credencialcliente_vehiculo).first.empresa_cliente %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Responsable</strong>
+        </td>
+        <td>
+          <%= Cliente.where(:credencial_cliente => Vehiculo.where(:placas_vehiculo => @recibo.placas_recibo).first.credencialcliente_vehiculo).first.responsable_cliente %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Teléfono</strong>
+        </td>
+        <td>
+          <%= Cliente.where(:credencial_cliente => Vehiculo.where(:placas_vehiculo => @recibo.placas_recibo).first.credencialcliente_vehiculo).first.telefono_cliente %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Correo electrónico</strong>
+        </td>
+        <td>
+          <%= Cliente.where(:credencial_cliente => Vehiculo.where(:placas_vehiculo => @recibo.placas_recibo).first.credencialcliente_vehiculo).first.email_cliente %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Comisionista</strong>
+        </td>
+        <td>
+          <%= Cliente.where(:credencial_cliente => Vehiculo.where(:placas_vehiculo => @recibo.placas_recibo).first.credencialcliente_vehiculo).first.comisionista_cliente %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Porcentaje</strong>
+        </td>
+        <td>
+          <%= Cliente.where(:credencial_cliente => Vehiculo.where(:placas_vehiculo => @recibo.placas_recibo).first.credencialcliente_vehiculo).first.porcentage_cliente %>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>

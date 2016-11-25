@@ -12,20 +12,22 @@
           <th>Participación OTS</th>
           <th>Participación comisionista</th>
           <th>Sobres aplicados</th>
+          <th>Detalles</th>
+          <th>Eliminar</th>
           <th colspan="3"></th>
         </tr>
       </thead>
 
-      <tbody>
+      <tbody style="text-align:center">
         <% @clientes.each do |cliente| %>
         <tr>
           <td><%= cliente.empresa_cliente %></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
-          <td><%= link_to 'Detalles', cliente %></td>
-          <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: '¿Estás seguro de eliminar a este cliente?' } %></td>
+          <td><%=  %></td>
+          <td><%= Recibo.where(:placas_recibo => Vehiculo.where(:credencialcliente_vehiculo => cliente.credencial_cliente).first.placas_vehiculo).sum(:sobres_recibo)%></td>
+          <td><%= link_to '', cliente, method: :put, class: 'btn btn-info'%></td>
+          <td><%= link_to '', cliente, class: 'btn btn-danger', method: :delete, data: { confirm: '¿Estás seguro de eliminar a este cliente?' } %></td>
         </tr>
         <% end %>
       </tbody>

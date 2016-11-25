@@ -18,6 +18,12 @@
       <h2>Vehículo nuevo</h2>
       <br>
       <div class="field">
+        <%= f.label :credencialcliente_vehiculo, class: 'sr-only' %>
+        <%= f.text_field :credencialcliente_vehiculo, class: 'form-control', placeholder: 'Credencial del cliente que es dueño del veículo' %>
+      </div>
+
+      <br>
+      <div class="field">
         <%= f.label :placas_vehiculo, class: 'sr-only' %>
         <%= f.text_field :placas_vehiculo, class: 'form-control', placeholder: 'Placas' %>
       </div>

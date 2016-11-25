@@ -1,13 +1,13 @@
 class CreateClientes < ActiveRecord::Migration[5.0]
   def change
     create_table :clientes do |t|
-      t.string :credencial_cliente
-      t.string :empresa_cliente
-      t.string :responsable_cliente
-      t.integer :telefono_cliente
-      t.string :email_cliente
-      t.string :comisionista_cliente
-      t.float :porcentage_cliente
+      t.string  :credencial_cliente,    null: false
+      t.string  :empresa_cliente,       null: false
+      t.string  :responsable_cliente,   null: false
+      t.bigint  :telefono_cliente,      null: false
+      t.string  :email_cliente,         null: false
+      t.string  :comisionista_cliente,  null: false
+      t.float   :porcentage_cliente,    null: false
 
       t.timestamps
     end
