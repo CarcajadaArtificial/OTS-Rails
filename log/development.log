@@ -26029,3 +26029,404 @@ Processing by ClientesController#show as HTML
 Completed 200 OK in 77ms (Views: 71.6ms | ActiveRecord: 1.7ms)
 
 
+Started GET "/vehiculos" for 127.0.0.1 at 2016-11-25 17:47:40 -0600
+Processing by VehiculosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering vehiculos/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (2.4ms)
+  [1m[36mVehiculo Load (0.3ms)[0m  [1m[34mSELECT "vehiculos".* FROM "vehiculos"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("recibos"."combustible_recibo") FROM "recibos" WHERE "recibos"."placas_recibo" = $1[0m  [["placas_recibo", "ABC123"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("recibos"."combustible_recibo") FROM "recibos" WHERE "recibos"."placas_recibo" = $1[0m  [["placas_recibo", "DEF456"]]
+  Rendered vehiculos/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 72ms (Views: 67.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-11-25 17:47:43 -0600
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering clientes/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (2.4ms)
+  [1m[36mCliente Load (0.5ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  [1m[36mVehiculo Load (0.5ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."credencialcliente_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["credencialcliente_vehiculo", "UBE284"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("recibos"."sobres_recibo") FROM "recibos" WHERE "recibos"."placas_recibo" = $1[0m  [["placas_recibo", "ABC123"]]
+  Rendered clientes/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 87ms (Views: 81.6ms | ActiveRecord: 2.5ms)
+
+
+DEPRECATION WARNING: cleanup! is deprecated and will be removed from Rails 5.1 (use Rails.application.reloader.reload! instead of cleanup + prepare) (called from serve at /usr/lib/ruby/vendor_ruby/spring/application.rb:152)
+DEPRECATION WARNING: prepare! is deprecated and will be removed from Rails 5.1 (use Rails.application.reloader.prepare! instead) (called from serve at /usr/lib/ruby/vendor_ruby/spring/application.rb:153)
+  [1m[36mRecibo Load (0.6ms)[0m  [1m[34mSELECT "recibos".* FROM "recibos" WHERE "recibos"."placas_recibo" = $1[0m  [["placas_recibo", "ABC123"]]
+  [1m[36mRecibo Load (1.3ms)[0m  [1m[34mSELECT sum(sobres_recibo) as suma_recibos FROM "recibos" GROUP BY "recibos"."placas_recibo"[0m
+  [1m[36mRecibo Load (0.3ms)[0m  [1m[34mSELECT sum(sobres_recibo) as suma_recibos FROM "recibos"[0m
+  [1m[36mRecibo Load (0.6ms)[0m  [1m[34mSELECT  FROM "recibos"[0m
+Started GET "/clientes" for 127.0.0.1 at 2016-11-25 18:19:05 -0600
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering clientes/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.5ms)
+  [1m[36mCliente Load (0.3ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  Rendered clientes/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 58ms (Views: 53.8ms | ActiveRecord: 0.9ms)
+
+
+  [1m[36mRecibo Load (0.4ms)[0m  [1m[34mSELECT sum(sobres_recibo) as suma_recibos FROM "recibos" GROUP BY "recibos"."placas_recibo"[0m
+  [1m[36mRecibo Load (0.8ms)[0m  [1m[34mSELECT  sum(sobres_recibo) as suma_recibos FROM "recibos" GROUP BY "recibos"."placas_recibo" ORDER BY "recibos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRecibo Load (0.4ms)[0m  [1m[34mSELECT sum(sobres_recibo) as suma_recibos FROM "recibos" GROUP BY "recibos"."placas_recibo"[0m
+Started GET "/clientes" for 127.0.0.1 at 2016-11-25 18:24:57 -0600
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering clientes/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.5ms)
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  [1m[36mVehiculo Load (0.4ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."credencialcliente_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["credencialcliente_vehiculo", "UBE284"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("recibos"."sobres_recibo") FROM "recibos" WHERE "recibos"."placas_recibo" = '1'[0m
+  Rendered clientes/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 56ms (Views: 52.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-11-25 18:25:25 -0600
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering clientes/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (2.1ms)
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  [1m[36mVehiculo Load (0.5ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."credencialcliente_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["credencialcliente_vehiculo", "UBE284"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT SUM("recibos"."sobres_recibo") FROM "recibos" WHERE "recibos"."placas_recibo" = $1[0m  [["placas_recibo", "ABC123"]]
+  Rendered clientes/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 57ms (Views: 52.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-11-25 18:25:50 -0600
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering clientes/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.4ms)
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  [1m[36mVehiculo Load (1.0ms)[0m  [1m[34mSELECT "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."credencialcliente_vehiculo" = $1[0m  [["credencialcliente_vehiculo", "UBE284"]]
+  Rendered clientes/index.html.erb within layouts/application (16.7ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `placas_vehiculo' for #<Vehiculo::ActiveRecord_Relation:0x007fa5dc1f0ac0>):
+    25:           <td></td>
+    26:           <td></td>
+    27:           <td><%=  %></td>
+    28:           <td><%= Recibo.where(:placas_recibo => Vehiculo.where(:credencialcliente_vehiculo => cliente.credencial_cliente).placas_vehiculo).sum(:sobres_recibo)%></td>
+    29:           <td><%= link_to '', cliente, method: :put, class: 'btn btn-info'%></td>
+    30:           <td><%= link_to '', cliente, class: 'btn btn-danger', method: :delete, data: { confirm: '¿Estás seguro de eliminar a este cliente?' } %></td>
+    31:         </tr>
+  
+app/views/clientes/index.html.erb:28:in `block in _app_views_clientes_index_html_erb___476051254959796786_70175179703740'
+app/views/clientes/index.html.erb:22:in `_app_views_clientes_index_html_erb___476051254959796786_70175179703740'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.6ms)
+Started GET "/clientes" for 127.0.0.1 at 2016-11-25 18:27:03 -0600
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering clientes/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.3ms)
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  Rendered clientes/index.html.erb within layouts/application (208.5ms)
+Completed 500 Internal Server Error in 214ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `placas_vehiculo' for #<#<Class:0x007fa5e5068140>:0x007fa5e00e5dc0>):
+    25:           <td></td>
+    26:           <td></td>
+    27:           <td><%=  %></td>
+    28:           <td><%= Recibo.where(:placas_recibo => Vehiculo.where(:credencialcliente_vehiculo => cliente.credencial_cliente).find(placas_vehiculo)).sum(:sobres_recibo)%></td>
+    29:           <td><%= link_to '', cliente, method: :put, class: 'btn btn-info'%></td>
+    30:           <td><%= link_to '', cliente, class: 'btn btn-danger', method: :delete, data: { confirm: '¿Estás seguro de eliminar a este cliente?' } %></td>
+    31:         </tr>
+  
+app/views/clientes/index.html.erb:28:in `block in _app_views_clientes_index_html_erb___476051254959796786_70175202686260'
+app/views/clientes/index.html.erb:22:in `_app_views_clientes_index_html_erb___476051254959796786_70175202686260'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.3ms)
+Started GET "/clientes" for 127.0.0.1 at 2016-11-25 18:27:11 -0600
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering clientes/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.3ms)
+  [1m[36mCliente Load (0.3ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  [1m[36mVehiculo Load (0.3ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."credencialcliente_vehiculo" = $1 AND "vehiculos"."id" = $2 LIMIT $3[0m  [["credencialcliente_vehiculo", "UBE284"], ["id", nil], ["LIMIT", 1]]
+  Rendered clientes/index.html.erb within layouts/application (6.9ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vehiculo with 'id'=placas_vehiculo [WHERE "vehiculos"."credencialcliente_vehiculo" = $1]):
+  
+app/views/clientes/index.html.erb:28:in `block in _app_views_clientes_index_html_erb___476051254959796786_70175068961020'
+app/views/clientes/index.html.erb:22:in `_app_views_clientes_index_html_erb___476051254959796786_70175068961020'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.0ms)
+Started GET "/clientes" for 127.0.0.1 at 2016-11-25 18:29:21 -0600
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering clientes/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (2.0ms)
+  [1m[36mCliente Load (0.3ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  [1m[36mVehiculo Load (0.5ms)[0m  [1m[34mSELECT "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."credencialcliente_vehiculo" = $1[0m  [["credencialcliente_vehiculo", "UBE284"]]
+  Rendered clientes/index.html.erb within layouts/application (16.7ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `placas_vehiculos' for #<Vehiculo::ActiveRecord_Relation:0x007fa5e042de10>):
+    25:           <td></td>
+    26:           <td></td>
+    27:           <td><%=  %></td>
+    28:           <td><%= Recibo.where(:placas_recibo => Vehiculo.where(:credencialcliente_vehiculo => cliente.credencial_cliente).placas_vehiculos).sum(:sobres_recibo)%></td>
+    29:           <td><%= link_to '', cliente, method: :put, class: 'btn btn-info'%></td>
+    30:           <td><%= link_to '', cliente, class: 'btn btn-danger', method: :delete, data: { confirm: '¿Estás seguro de eliminar a este cliente?' } %></td>
+    31:         </tr>
+  
+app/views/clientes/index.html.erb:28:in `block in _app_views_clientes_index_html_erb___476051254959796786_70175139416180'
+app/views/clientes/index.html.erb:22:in `_app_views_clientes_index_html_erb___476051254959796786_70175139416180'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.7ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.3ms)
+Started GET "/clientes" for 127.0.0.1 at 2016-11-25 18:32:11 -0600
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering clientes/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.4ms)
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  [1m[36mVehiculo Load (1.1ms)[0m  [1m[34mSELECT "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."credencialcliente_vehiculo" = $1[0m  [["credencialcliente_vehiculo", "UBE284"]]
+  Rendered clientes/index.html.erb within layouts/application (15.2ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `placas_vehiculos' for #<Vehiculo::ActiveRecord_Relation:0x007fa5d86b9ba0>):
+    25:           <td></td>
+    26:           <td></td>
+    27:           <td><%=  %></td>
+    28:           <td><%= Recibo.where(:placas_recibo => Vehiculo.where(:credencialcliente_vehiculo => cliente.credencial_cliente).placas_vehiculos).sum(:sobres_recibo)%></td>
+    29:           <td><%= link_to '', cliente, method: :put, class: 'btn btn-info'%></td>
+    30:           <td><%= link_to '', cliente, class: 'btn btn-danger', method: :delete, data: { confirm: '¿Estás seguro de eliminar a este cliente?' } %></td>
+    31:         </tr>
+  
+app/views/clientes/index.html.erb:28:in `block in _app_views_clientes_index_html_erb___476051254959796786_70175171700580'
+app/views/clientes/index.html.erb:22:in `_app_views_clientes_index_html_erb___476051254959796786_70175171700580'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.4ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.8ms)
+Started GET "/clientes" for 127.0.0.1 at 2016-11-25 18:32:23 -0600
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering clientes/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.3ms)
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("recibos"."sobres_recibo") FROM "recibos" WHERE "recibos"."placas_recibo" IN (SELECT "vehiculos"."id" FROM "vehiculos" WHERE "vehiculos"."credencialcliente_vehiculo" = $1)[0m  [["credencialcliente_vehiculo", "UBE284"]]
+  Rendered clientes/index.html.erb within layouts/application (8.5ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 2.4ms)
+
+
+  
+ActionView::Template::Error (PG::UndefinedFunction: ERROR:  operator does not exist: character varying = integer
+LINE 1: ...") FROM "recibos" WHERE "recibos"."placas_recibo" IN (SELECT...
+                                                             ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+: SELECT SUM("recibos"."sobres_recibo") FROM "recibos" WHERE "recibos"."placas_recibo" IN (SELECT "vehiculos"."id" FROM "vehiculos" WHERE "vehiculos"."credencialcliente_vehiculo" = $1)):
+    25:           <td></td>
+    26:           <td></td>
+    27:           <td><%=  %></td>
+    28:           <td><%= Recibo.where(:placas_recibo => Vehiculo.where(:credencialcliente_vehiculo => cliente.credencial_cliente)).sum(:sobres_recibo) %></td>
+    29:           <td><%= link_to '', cliente, method: :put, class: 'btn btn-info'%></td>
+    30:           <td><%= link_to '', cliente, class: 'btn btn-danger', method: :delete, data: { confirm: '¿Estás seguro de eliminar a este cliente?' } %></td>
+    31:         </tr>
+  
+app/views/clientes/index.html.erb:28:in `block in _app_views_clientes_index_html_erb___476051254959796786_70175136012320'
+app/views/clientes/index.html.erb:22:in `_app_views_clientes_index_html_erb___476051254959796786_70175136012320'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.8ms)
+Started GET "/clientes" for 127.0.0.1 at 2016-11-25 18:36:50 -0600
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering clientes/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.4ms)
+  [1m[36mCliente Load (0.3ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "vehiculos"."placas_vehiculo" FROM "vehiculos" WHERE "vehiculos"."credencialcliente_vehiculo" = $1[0m  [["credencialcliente_vehiculo", "UBE284"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("recibos"."sobres_recibo") FROM "recibos" WHERE "recibos"."placas_recibo" IN ('ABC123', 'DEF456')[0m
+  Rendered clientes/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 55ms (Views: 51.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/recibos" for 127.0.0.1 at 2016-11-25 18:37:40 -0600
+Processing by RecibosController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recibos/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.6ms)
+  [1m[36mRecibo Load (0.7ms)[0m  [1m[34mSELECT "recibos".* FROM "recibos"[0m
+  [1m[36mVehiculo Load (0.6ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "ABC123"], ["LIMIT", 1]]
+  [1m[36mCliente Load (0.5ms)[0m  [1m[34mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."credencial_cliente" = $1 ORDER BY "clientes"."id" ASC LIMIT $2[0m  [["credencial_cliente", "UBE284"], ["LIMIT", 1]]
+  [1m[36mVehiculo Load (0.4ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "DEF456"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."credencial_cliente" = $1 ORDER BY "clientes"."id" ASC LIMIT $2[0m  [["credencial_cliente", "UBE284"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "DEF456"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."credencial_cliente" = $1 ORDER BY "clientes"."id" ASC LIMIT $2[0m  [["credencial_cliente", "UBE284"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "ABC123"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."credencial_cliente" = $1 ORDER BY "clientes"."id" ASC LIMIT $2[0m  [["credencial_cliente", "UBE284"], ["LIMIT", 1]]
+  Rendered recibos/index.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 76ms (Views: 66.9ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/vehiculos/new" for 127.0.0.1 at 2016-11-25 18:37:49 -0600
+Processing by VehiculosController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering vehiculos/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (4.1ms)
+  Rendered vehiculos/_form.html.erb (9.6ms)
+  Rendered vehiculos/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 67ms (Views: 62.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/vehiculos" for 127.0.0.1 at 2016-11-25 18:38:39 -0600
+Processing by VehiculosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h8zb+oGVIJfHcvNJNZNN+s2hDwEDahHdMA9qEgYoiSCuq0Uq7Dl1qwItk8MNkIny/mkcTm/pgyfqX0psQ/U6yA==", "vehiculo"=>{"credencialcliente_vehiculo"=>"UBE284", "placas_vehiculo"=>"GHI789", "marca_vehiculo"=>"Ford", "modelo_vehiculo"=>"Fiesta", "ano_vehiculo"=>"2014", "rendimientohistorico_vehiculo"=>"5.9", "operador_vehiculo"=>"Pepe"}, "commit"=>"Crear"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "vehiculos" ("placas_vehiculo", "marca_vehiculo", "modelo_vehiculo", "ano_vehiculo", "rendimientohistorico_vehiculo", "operador_vehiculo", "credencialcliente_vehiculo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["placas_vehiculo", "GHI789"], ["marca_vehiculo", "Ford"], ["modelo_vehiculo", "Fiesta"], ["ano_vehiculo", "2014"], ["rendimientohistorico_vehiculo", 5.9], ["operador_vehiculo", "Pepe"], ["credencialcliente_vehiculo", "UBE284"], ["created_at", 2016-11-26 00:38:39 UTC], ["updated_at", 2016-11-26 00:38:39 UTC]]
+  [1m[35m (82.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/vehiculos/3
+Completed 302 Found in 89ms (ActiveRecord: 83.2ms)
+
+
+Started GET "/vehiculos/3" for 127.0.0.1 at 2016-11-25 18:38:40 -0600
+Processing by VehiculosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mVehiculo Load (0.2ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering vehiculos/show.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (2.2ms)
+  [1m[36mRecibo Load (0.3ms)[0m  [1m[34mSELECT "recibos".* FROM "recibos" WHERE "recibos"."placas_recibo" = $1[0m  [["placas_recibo", "GHI789"]]
+  Rendered vehiculos/show.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 53ms (Views: 49.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/recibos/new" for 127.0.0.1 at 2016-11-25 18:38:47 -0600
+Processing by RecibosController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recibos/new.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (2.4ms)
+  Rendered recibos/_form.html.erb (8.2ms)
+  Rendered recibos/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 61ms (Views: 56.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/recibos" for 127.0.0.1 at 2016-11-25 18:39:21 -0600
+Processing by RecibosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FCQoc8+JTTNtx84Tgf+q/efiNkrU5sPdwMdNE2W/YQjRvnQxh1CdqgvEiy9l36Na6sUMPOHOaveDkB1RYbD2rA==", "recibo"=>{"placas_recibo"=>"GHI789", "kmactual_recibo"=>"600", "combustible_recibo"=>"42", "sobres_recibo"=>"7"}, "commit"=>"Crear"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "recibos" ("kmactual_recibo", "combustible_recibo", "sobres_recibo", "placas_recibo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["kmactual_recibo", 600.0], ["combustible_recibo", 42.0], ["sobres_recibo", 7.0], ["placas_recibo", "GHI789"], ["created_at", 2016-11-26 00:39:21 UTC], ["updated_at", 2016-11-26 00:39:21 UTC]]
+  [1m[35m (81.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/recibos/5
+Completed 302 Found in 89ms (ActiveRecord: 82.8ms)
+
+
+Started GET "/recibos/5" for 127.0.0.1 at 2016-11-25 18:39:21 -0600
+Processing by RecibosController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecibo Load (0.2ms)[0m  [1m[34mSELECT  "recibos".* FROM "recibos" WHERE "recibos"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering recibos/show.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (2.6ms)
+  [1m[36mVehiculo Load (0.4ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "GHI789"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "GHI789"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "GHI789"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "GHI789"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "GHI789"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "GHI789"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "GHI789"], ["LIMIT", 1]]
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."credencial_cliente" = $1 ORDER BY "clientes"."id" ASC LIMIT $2[0m  [["credencial_cliente", "UBE284"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "GHI789"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."credencial_cliente" = $1 ORDER BY "clientes"."id" ASC LIMIT $2[0m  [["credencial_cliente", "UBE284"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "GHI789"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."credencial_cliente" = $1 ORDER BY "clientes"."id" ASC LIMIT $2[0m  [["credencial_cliente", "UBE284"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "GHI789"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."credencial_cliente" = $1 ORDER BY "clientes"."id" ASC LIMIT $2[0m  [["credencial_cliente", "UBE284"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "GHI789"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."credencial_cliente" = $1 ORDER BY "clientes"."id" ASC LIMIT $2[0m  [["credencial_cliente", "UBE284"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."placas_vehiculo" = $1 ORDER BY "vehiculos"."id" ASC LIMIT $2[0m  [["placas_vehiculo", "GHI789"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."credencial_cliente" = $1 ORDER BY "clientes"."id" ASC LIMIT $2[0m  [["credencial_cliente", "UBE284"], ["LIMIT", 1]]
+  Rendered recibos/show.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 71ms (Views: 66.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-11-25 18:39:24 -0600
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering clientes/index.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (1.8ms)
+  [1m[36mCliente Load (0.7ms)[0m  [1m[34mSELECT "clientes".* FROM "clientes"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "vehiculos"."placas_vehiculo" FROM "vehiculos" WHERE "vehiculos"."credencialcliente_vehiculo" = $1[0m  [["credencialcliente_vehiculo", "UBE284"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("recibos"."sobres_recibo") FROM "recibos" WHERE "recibos"."placas_recibo" IN ('ABC123', 'DEF456', 'GHI789')[0m
+  Rendered clientes/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 74ms (Views: 69.7ms | ActiveRecord: 2.1ms)
+
+
+Started PUT "/clientes/1" for 127.0.0.1 at 2016-11-25 18:39:30 -0600
+Processing by ClientesController#update as HTML
+  Parameters: {"authenticity_token"=>"YMdW5bu/p5CxaUObimEtSQM6T+trd6c6S2k6nTtxDo4HQOztVzHjjpBbLfFxcPPn1i9ch5iHqCkIgKegGJBypw==", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCliente Load (0.2ms)[0m  [1m[34mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: _method, authenticity_token, id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/clientes/1
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/clientes/1" for 127.0.0.1 at 2016-11-25 18:39:30 -0600
+Processing by ClientesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCliente Load (0.1ms)[0m  [1m[34mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering clientes/show.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (2.2ms)
+  [1m[36mVehiculo Load (0.4ms)[0m  [1m[34mSELECT "vehiculos".* FROM "vehiculos" WHERE "vehiculos"."credencialcliente_vehiculo" = $1[0m  [["credencialcliente_vehiculo", "UBE284"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("recibos"."combustible_recibo") FROM "recibos" WHERE "recibos"."placas_recibo" = $1[0m  [["placas_recibo", "ABC123"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("recibos"."combustible_recibo") FROM "recibos" WHERE "recibos"."placas_recibo" = $1[0m  [["placas_recibo", "DEF456"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("recibos"."combustible_recibo") FROM "recibos" WHERE "recibos"."placas_recibo" = $1[0m  [["placas_recibo", "GHI789"]]
+  Rendered clientes/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 58ms (Views: 53.4ms | ActiveRecord: 1.9ms)
+
+
