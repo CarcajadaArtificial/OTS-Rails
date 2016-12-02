@@ -63,6 +63,10 @@ class VehiculosController < ApplicationController
     end
   end
 
+  def calcula_litroscargados
+    @litros_cargados = Recibo.where(:placas_recibo => @vehiculo.placas_vehiculo).sum(:combustible_recibo)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vehiculo

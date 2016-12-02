@@ -1,6 +1,6 @@
 <%= render 'layouts/navbar' %>
-
-<div class="row">
+<% if current_user && current_user.AdminStatus? %>
+  <div class="row">
   <div class="col-md-10 offset-md-1">
     <h2 style="text-align:center">Recibos</h2>
     <br>
@@ -10,9 +10,8 @@
           <th>Folio recibo</th>
           <th>Placas</th>
           <th>Compañía</th>
-          <th>Kilometraje anterior</th>
           <th>Kilometraje actual</th>
-          <th>Combustible recibo</th>
+          <th>Combustible</th>
           <th>Sobres aplicados</th>
           <th>Detalles</th>
           <th>Eliminar</th>
@@ -23,7 +22,6 @@
           <td><%= recibo.id %></td>
           <th><%= recibo.placas_recibo %></th>
           <th><%= Cliente.where(:credencial_cliente => Vehiculo.where(:placas_vehiculo => recibo.placas_recibo).first.credencialcliente_vehiculo).first.empresa_cliente %></th>
-          <td><%= recibo.kmanterior_recibo %></td>
           <td><%= recibo.kmactual_recibo %></td>
           <td><%= recibo.combustible_recibo %></td>
           <td><%= recibo.sobres_recibo %></td>
@@ -36,3 +34,6 @@
     <br>
   </div>
 </div>
+<% else %>
+  <%= render 'layouts/error' %>
+<% end %>

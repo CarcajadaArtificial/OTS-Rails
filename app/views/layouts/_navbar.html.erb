@@ -41,12 +41,7 @@
         <% else %>
 
         <div class="dropdown nav-item">
-          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Acciones
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <%= link_to "Recibo", nuevo_recibo_path, type: "button", class: "btn btn-default btn-block"%>
-          </ul>
+          <%= link_to "Solicitar producto", solicitud_path, type: "button", class: "btn btn-primary"%>
         </div>
         <% end %>
 

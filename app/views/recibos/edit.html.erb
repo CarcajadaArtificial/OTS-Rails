@@ -1,4 +1,8 @@
-<%= render 'form', recibo: @recibo %>
-
-<%= link_to 'Show', @recibo %> |
-<%= link_to 'Back', recibos_path %>
+<%= render 'layouts/navbar' %>
+<% if current_user && current_user.AdminStatus? %>
+  <%= render 'form', recibo: @recibo %>
+  <%= link_to 'Show', @recibo %> |
+  <%= link_to 'Back', recibos_path %>
+<% else %>
+  <%= render 'layouts/error' %>
+<% end %>

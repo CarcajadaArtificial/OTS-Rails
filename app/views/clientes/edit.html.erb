@@ -1,4 +1,8 @@
-<%= render 'form', cliente: @cliente %>
-
-<%= link_to 'Show', @cliente %> |
-<%= link_to 'Back', clientes_path %>
+<%= render 'layouts/navbar' %>
+<% if current_user && current_user.AdminStatus? %>
+  <%= render 'form', cliente: @cliente %>
+  <%= link_to 'Show', @cliente %> |
+  <%= link_to 'Back', clientes_path %>
+<% else %>
+  <%= render 'layouts/error' %>
+<% end %>

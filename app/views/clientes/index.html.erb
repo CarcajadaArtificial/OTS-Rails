@@ -1,6 +1,6 @@
 <%= render 'layouts/navbar' %>
-
-<div class="row">
+<% if current_user && current_user.AdminStatus? %>
+  <div class="row">
   <div class="col-md-10 offset-md-1">
     <h2 style="text-align:center">Clientes</h2>
     <br>
@@ -22,9 +22,9 @@
         <% @clientes.each do |cliente| %>
         <tr>
           <td><%= cliente.empresa_cliente %></td>
-          <td></td>
-          <td></td>
-          <td><%=  %></td>
+          <td>$ <%= cliente.calcula_ahorro.round(2) %></td>
+          <td>$ <%= cliente.calcula_pOTS.round(2) %></td>
+          <td>$ <%= cliente.calcula_pComisionista.round(2) %></td>
           <td><%= Recibo.where(:placas_recibo => Vehiculo.where(:credencialcliente_vehiculo => cliente.credencial_cliente).pluck(:placas_vehiculo)).sum(:sobres_recibo) %></td>
           <td><%= link_to '', cliente, method: :put, class: 'btn btn-info'%></td>
           <td><%= link_to '', cliente, class: 'btn btn-danger', method: :delete, data: { confirm: '¿Estás seguro de eliminar a este cliente?' } %></td>
@@ -35,3 +35,6 @@
 
   </div>
 </div>
+<% else %>
+  <%= render 'layouts/error' %>
+<% end %>

@@ -1,1 +1,6 @@
-<%= render 'form', recibo: @recibo %>
+<%= render 'layouts/navbar' %>
+<% if current_user && current_user.AdminStatus? %>
+  <%= render 'form', recibo: @recibo %>
+<% else %>
+  <%= render 'layouts/error' %>
+<% end %>

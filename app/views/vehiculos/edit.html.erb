@@ -1,6 +1,8 @@
-<h1>Editing Vehiculo</h1>
-
-<%= render 'form', vehiculo: @vehiculo %>
-
-<%= link_to 'Show', @vehiculo %> |
-<%= link_to 'Back', vehiculos_path %>
+<%= render 'layouts/navbar' %>
+<% if current_user && current_user.AdminStatus? %>
+  <%= render 'form', vehiculo: @vehiculo %>
+  <%= link_to 'Show', @vehiculo %> |
+  <%= link_to 'Back', vehiculos_path %>
+<% else %>
+  <%= render 'layouts/error' %>
+<% end %>

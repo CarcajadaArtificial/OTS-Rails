@@ -1,87 +1,90 @@
 <%= render 'layouts/navbar' %>
-
-<div class="row" style="text-align: center">
-  <!-- División de información de vehículo -->
-  <div class="col-md-4 offset-md-4">
-    <h4><%= @vehiculo.placas_vehiculo %></h4>
-    <table class="table">
-      <tr>
-        <td>
-          <strong>Marca</strong>
-        </td>
-        <td>
-          <p><%= @vehiculo.marca_vehiculo %></p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Modelo</strong>
-        </td>
-        <td>
-          <p><%= @vehiculo.modelo_vehiculo %></p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Año</strong>
-        </td>
-        <td>
-          <p><%= @vehiculo.ano_vehiculo %></p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Rendimiento Histórico</strong>
-        </td>
-        <td>
-          <p><%= @vehiculo.rendimientohistorico_vehiculo %></p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Operador</strong>
-        </td>
-        <td>
-          <p><%= @vehiculo.operador_vehiculo %></p>
-        </td>
-      </tr>
-    </table>
-    <%= link_to 'Editar', edit_vehiculo_path(@vehiculo), class: "btn btn-warning" %>
-  </div>
-  <!-- Divisón con todos los recibos del vehículo -->
-</div>
-<br>
-<br>
-<div class="row">
-  <div class="col-md-10 offset-md-1">
-    <table class="table table-responsive">
-      <tbody style="text-align:center">
+<% if current_user && current_user.AdminStatus? %>
+  <div class="row" style="text-align: center">
+    <!-- División de información de vehículo -->
+    <div class="col-md-4 offset-md-4">
+      <h4><%= @vehiculo.placas_vehiculo %></h4>
+      <table class="table">
         <tr>
-          <th>Folio recibo</th>
-          <th>Placas</th>
-          <th>Compañía</th>
-          <th>Kilometraje anterior</th>
-          <th>Kilometraje actual</th>
-          <th>Combustible recibo</th>
-          <th>Sobres aplicados</th>
-          <th>Detalles</th>
-          <th>Eliminar</th>
-          <th colspan="3"></th>
+          <td>
+            <strong>Marca</strong>
+          </td>
+          <td>
+            <p><%= @vehiculo.marca_vehiculo %></p>
+          </td>
         </tr>
-        <% Recibo.where(:placas_recibo => @vehiculo.placas_vehiculo).each do |recibo| %>
         <tr>
-          <td><%= recibo.id %></td>
-          <th><%= recibo.placas_recibo %></th>
-          <th><%= Cliente.where(:credencial_cliente => Vehiculo.where(:placas_vehiculo => recibo.placas_recibo).first.credencialcliente_vehiculo).first.empresa_cliente %></th>
-          <td><%= recibo.kmanterior_recibo %></td>
-          <td><%= recibo.kmactual_recibo %></td>
-          <td><%= recibo.combustible_recibo %></td>
-          <td><%= recibo.sobres_recibo %></td>
-          <td><%= link_to '', recibo, class: 'btn btn-info' %></td>
-          <td><%= link_to '', recibo, method: :delete, data: { confirm: '¿Estás seguro de eliminar este recibo?' }, class: 'btn btn-danger' %></td>
+          <td>
+            <strong>Modelo</strong>
+          </td>
+          <td>
+            <p><%= @vehiculo.modelo_vehiculo %></p>
+          </td>
         </tr>
-        <% end %>
-      </tbody>
-    </table>
+        <tr>
+          <td>
+            <strong>Año</strong>
+          </td>
+          <td>
+            <p><%= @vehiculo.ano_vehiculo %></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Rendimiento Histórico</strong>
+          </td>
+          <td>
+            <p><%= @vehiculo.rendimientohistorico_vehiculo %></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Operador</strong>
+          </td>
+          <td>
+            <p><%= @vehiculo.operador_vehiculo %></p>
+          </td>
+        </tr>
+      </table>
+      <%= link_to 'Editar', edit_vehiculo_path(@vehiculo), class: "btn btn-warning" %>
+    </div>
+    <!-- Divisón con todos los recibos del vehículo -->
   </div>
-</div>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <table class="table table-responsive">
+        <tbody style="text-align:center">
+          <tr>
+            <th>Folio recibo</th>
+            <th>Placas</th>
+            <th>Compañía</th>
+            <th>Kilometraje anterior</th>
+            <th>Kilometraje actual</th>
+            <th>Combustible recibo</th>
+            <th>Sobres aplicados</th>
+            <th>Detalles</th>
+            <th>Eliminar</th>
+            <th colspan="3"></th>
+          </tr>
+          <% Recibo.where(:placas_recibo => @vehiculo.placas_vehiculo).each do |recibo| %>
+          <tr>
+            <td><%= recibo.id %></td>
+            <th><%= recibo.placas_recibo %></th>
+            <th><%= Cliente.where(:credencial_cliente => Vehiculo.where(:placas_vehiculo => recibo.placas_recibo).first.credencialcliente_vehiculo).first.empresa_cliente %></th>
+            <td><%= recibo.kmanterior_recibo %></td>
+            <td><%= recibo.kmactual_recibo %></td>
+            <td><%= recibo.combustible_recibo %></td>
+            <td><%= recibo.sobres_recibo %></td>
+            <td><%= link_to '', recibo, class: 'btn btn-info' %></td>
+            <td><%= link_to '', recibo, method: :delete, data: { confirm: '¿Estás seguro de eliminar este recibo?' }, class: 'btn btn-danger' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% else %>
+  <%= render 'layouts/error' %>
+<% end %>
