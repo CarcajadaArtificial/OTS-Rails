@@ -4,15 +4,15 @@
     <%= form_for(cliente, html: {class: "form-signin"}) do |f| %>
 
       <% if cliente.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+        <div id="error_explanation">
+          <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
 
-        <ul>
-          <% cliente.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
+          <ul>
+            <% cliente.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
 
       <h2>Cliente nuevo</h2>

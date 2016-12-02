@@ -26,7 +26,7 @@
           <td>$ <%= cliente.calcula_pOTS.round(2) %></td>
           <td>$ <%= cliente.calcula_pComisionista.round(2) %></td>
           <td><%= Recibo.where(:placas_recibo => Vehiculo.where(:credencialcliente_vehiculo => cliente.credencial_cliente).pluck(:placas_vehiculo)).sum(:sobres_recibo) %></td>
-          <td><%= link_to '', cliente, method: :put, class: 'btn btn-info'%></td>
+          <td><%= link_to '', cliente, class: 'btn btn-info'%></td>
           <td><%= link_to '', cliente, class: 'btn btn-danger', method: :delete, data: { confirm: '¿Estás seguro de eliminar a este cliente?' } %></td>
         </tr>
         <% end %>

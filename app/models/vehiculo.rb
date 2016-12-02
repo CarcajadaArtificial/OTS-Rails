@@ -4,6 +4,7 @@ class Vehiculo < ApplicationRecord
   end
 
   def calcula_ahorro
+
     # a = arreglo de id's de los recibos con las placas_recibo iguales a placas_vehiculo
     a = Recibo.where(:placas_recibo => placas_vehiculo).order(:id)
     # i = contador que recorre el arreglo
@@ -24,11 +25,18 @@ class Vehiculo < ApplicationRecord
   end
 
   def calcula_rendimiento
-    kmactual = Recibo.where(:placas_recibo => placas_vehiculo).order(:created_at).last.kmactual_recibo
-    kminicial = Recibo.where(:placas_recibo => placas_vehiculo).order(:created_at).first.kmactual_recibo
-    litros = Recibo.where(:placas_recibo => placas_vehiculo).sum(:combustible_recibo)
-    (kmactual - kminicial) / litros
-  end
 
+    a = Recibo.where(:placas_recibo => placas_vehiculo).order(:id)
+
+    if a.length < 2
+      0
+    else
+      kmactual = Recibo.where(:placas_recibo => placas_vehiculo).order(:created_at).last.kmactual_recibo
+      kminicial = Recibo.where(:placas_recibo => placas_vehiculo).order(:created_at).first.kmactual_recibo
+      litros = Recibo.where(:placas_recibo => placas_vehiculo).sum(:combustible_recibo)
+      (kmactual - kminicial) / litros
+    end
+
+  end
 
 end
