@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161217111743) do
+=======
+ActiveRecord::Schema.define(version: 20161217090332) do
+>>>>>>> 3390863c24491c291ba7ef95a812f19ec65ba871
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alerta", force: :cascade do |t|
+    t.string   "titulo_alerta"
+    t.string   "contenido_alerta"
+    t.boolean  "leido_alerta"
+    t.string   "emailuser_alerta"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "clientes", force: :cascade do |t|
     t.string   "credencial_cliente",   null: false
