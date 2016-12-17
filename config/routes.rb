@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :representantes
   resources :recibos
   resources :vehiculos
   resources :clientes
@@ -14,9 +15,7 @@ Rails.application.routes.draw do
 
   Rails.application.routes.draw do
   resources :recibos
-    devise_for :users do
-      get '/users/sign_out' => 'devise/sessions#destroy'
-    end
+  devise_for :users, :controllers =>  { :registrations => "my_devise/registrations" }
   end
 
 end
