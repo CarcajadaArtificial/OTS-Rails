@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo alerta:</strong>
+  <%= @alertum.titulo_alerta %>
+</p>
+
+<p>
+  <strong>Contenido alerta:</strong>
+  <%= @alertum.contenido_alerta %>
+</p>
+
+<p>
+  <strong>Leido alerta:</strong>
+  <%= @alertum.leido_alerta %>
+</p>
+
+<p>
+  <strong>Emailuser alerta:</strong>
+  <%= @alertum.emailuser_alerta %>
+</p>
+
+<%= link_to 'Edit', edit_alertum_path(@alertum) %> |
+<%= link_to 'Back', alerta_path %>

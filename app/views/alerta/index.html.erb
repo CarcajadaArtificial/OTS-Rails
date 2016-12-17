@@ -1,0 +1,24 @@
+<%= render 'layouts/navbar' %>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <h1 style="text-align:center">Alerta</h1>
+  <br>
+  <div class="col-md-10">
+
+    <% @alerta.each do |alertum| %>
+      <% if alertum.leido_alerta? %>
+        <div class="card card-block col-md-3 offset-md-1">
+          <h4 class="card-title"><%= alertum.titulo_alerta %></h4>
+          <p class="card-text"><%= alertum.contenido_alerta %></p>
+        </div>
+      <% else %>
+        <div class="card card-block card-info col-md-3 offset-md-1">
+          <h4 class="card-title"><%= alertum.titulo_alerta %></h4>
+          <p class="card-text"><%= alertum.contenido_alerta %></p>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
