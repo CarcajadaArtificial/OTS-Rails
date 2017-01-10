@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
+  resources :representantes
+=======
   resources :alerta
+>>>>>>> 3390863c24491c291ba7ef95a812f19ec65ba871
   resources :recibos
   resources :vehiculos
   resources :clientes
@@ -18,9 +22,7 @@ Rails.application.routes.draw do
   Rails.application.routes.draw do
   resources :alerta
   resources :recibos
-    devise_for :users do
-      get '/users/sign_out' => 'devise/sessions#destroy'
-    end
+  devise_for :users, :controllers =>  { :registrations => "my_devise/registrations" }
   end
 
 end
