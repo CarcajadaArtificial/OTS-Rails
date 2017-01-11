@@ -1,11 +1,85 @@
+<%= wicked_pdf_stylesheet_link_tag "pdf.css" -%>
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
-  <h1>la pruebita</h1>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+
+  <body>
+      <div class="row">
+        <div class="col-xs-6">
+          <h1 class="center">Reporte Mensual</h1>
+        </div>
+        <div class="col-xs-5 offset-xs-1">
+          <h2 class="center">OTS Services</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 offset-xs-3">
+          <% @cliente = Cliente.where(:credencial_cliente => Filtro.last.empresa_filtro).first %>
+          <h2 class="center"> <%= @cliente.empresa_cliente %> </h2>
+          <table class="center table">
+            <tr>
+              <td><strong>Ahorro</strong></td>
+              <td>$ <%= @cliente.calcula_ahorro.round(2)%></td>
+            </tr>
+            <tr>
+              <td><strong>Total a pagar</strong></td>
+              <% @total = @cliente.calcula_ahorro.round(2)/2 %>
+              <td>$ <%= @total.round(2)%></td>
+            </tr>
+            <tr>
+              <td><strong>Periodo</strong></td>
+              <td><%= Filtro.last.fechainicio_filtro.to_date.strftime("%e/%b/%Y") %>  -  <%= Filtro.last.fechafin_filtro.to_date.strftime("%e/%b/%Y") %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-8">
+          <% @vehiculo = Vehiculo.where(:credencialcliente_vehiculo => @cliente.credencial_cliente) %>
+          <% @vehiculo.each do |vehiculo| %>
+            <table class="table table-responsive">
+              <tr>
+                <td><%= vehiculo.marca_vehiculo %></td>
+                <td><%= vehiculo.modelo_vehiculo %></td>
+                <td><%= vehiculo.ano_vehiculo %></td>
+                <td><%= vehiculo.placas_vehiculo %></td>
+              </tr>
+            </table>
+        </div>
+
+            <div class="col-xs-10 offset-xs-1">
+              <table class="table table-responsive">
+                <thead>
+                  <tr>
+                    <td>Folio</td>
+                    <td>Kilometraje</td>
+                    <td>Combustible</td>
+                    <td>Sobres aplicados</td>
+                    <td>Fecha</td>
+                  </tr>
+                </thead>
+                <% @recibo = Recibo.where(:placas_recibo => vehiculo.placas_vehiculo).where("created_at >= ? AND created_at < ?", Filtro.last.fechainicio_filtro.to_date, Filtro.last.fechafin_filtro.to_date) %>
+                <% @recibo.each do |recibo| %>
+                <tbody>
+                  <tr>
+                    <td><%= recibo.id %></td>
+                    <td><%= recibo.kmactual_recibo %></td>
+                    <td><%= recibo.combustible_recibo %></td>
+                    <td><%= recibo.sobres_recibo %></td>
+                    <td><%= recibo.created_at.strftime("%e / %b / %Y") %></td>
+                  </tr>
+                </tbody>
+                <% end %>
+              </table>
+            </div>
+          <% end %>
+      </div>
+
+  </body>
 </html>
