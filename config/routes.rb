@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
   resources :representantes
-=======
   resources :alerta
->>>>>>> 3390863c24491c291ba7ef95a812f19ec65ba871
   resources :recibos
   resources :vehiculos
   resources :clientes

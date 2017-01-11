@@ -5,6 +5,11 @@ class RecibosController < ApplicationController
   # GET /recibos.json
   def index
     @recibos = Recibo.all
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf {render template: 'recibos/reporte', pdf: 'Reporte'}
+    end
   end
 
   # GET /recibos/1
