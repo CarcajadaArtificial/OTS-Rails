@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170111050210) do
     t.float    "porcentage_cliente",   null: false
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.index ["credencial_cliente"], name: "index_clientes_on_credencial_cliente", using: :btree
+    t.index ["credencial_cliente"], name: "index_clientes_on_credencial_cliente", unique: true, using: :btree
   end
 
   create_table "filtros", force: :cascade do |t|
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20170111050210) do
     t.string   "credencialcliente_vehiculo",    null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.index ["placas_vehiculo"], name: "index_vehiculos_on_placas_vehiculo", using: :btree
+    t.index ["placas_vehiculo"], name: "index_vehiculos_on_placas_vehiculo", unique: true, using: :btree
   end
 
 end

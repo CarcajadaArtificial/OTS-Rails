@@ -11,6 +11,6 @@ class CreateClientes < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :clientes, :credencial_cliente
+    add_index :clientes, :credencial_cliente, :unique => true
   end
 end

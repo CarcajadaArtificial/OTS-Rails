@@ -2,6 +2,7 @@
 <% if current_user && current_user.AdminStatus? %>
 <div class="row">
   <div class="col-md-10 offset-md-1">
+    <%= button_to "Generar PDF", "/recibos.pdf", method: :get, class: 'btn btn-lg btn-primary' %>
     <% @cliente = Cliente.where(:credencial_cliente => Filtro.last.empresa_filtro).first %>
     <h1 style="text-align:center"> <%= @cliente.empresa_cliente %> </h1>
     <table class="table table-responsive">

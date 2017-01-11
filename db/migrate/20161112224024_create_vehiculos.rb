@@ -11,6 +11,6 @@ class CreateVehiculos < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :vehiculos, :placas_vehiculo
+    add_index :vehiculos, :placas_vehiculo, :unique => true
   end
 end
