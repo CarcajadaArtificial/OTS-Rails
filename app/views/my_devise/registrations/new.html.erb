@@ -1,4 +1,5 @@
 <%= render 'layouts/navbar' %>
+<% if current_user && current_user.AdminStatus? %>
 
 <div class="row">
   <div class="col-md-4 offset-md-4" style="text-align: center">
@@ -71,5 +72,9 @@
       </div>
     <% end %>
 
+
   </div>
 </div>
+<% else %>
+  <%= render 'layouts/error' %>
+  <% end %>
