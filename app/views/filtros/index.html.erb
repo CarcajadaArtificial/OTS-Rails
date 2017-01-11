@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Filtros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Empresa filtro</th>
+      <th>Fechainicio filtro</th>
+      <th>Fechafin filtro</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @filtros.each do |filtro| %>
+      <tr>
+        <td><%= filtro.empresa_filtro %></td>
+        <td><%= filtro.fechainicio_filtro %></td>
+        <td><%= filtro.fechafin_filtro %></td>
+        <td><%= link_to 'Show', filtro %></td>
+        <td><%= link_to 'Edit', edit_filtro_path(filtro) %></td>
+        <td><%= link_to 'Destroy', filtro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Filtro', new_filtro_path %>

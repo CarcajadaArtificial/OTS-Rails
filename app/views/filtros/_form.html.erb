@@ -1,0 +1,32 @@
+<%= form_for(filtro) do |f| %>
+  <% if filtro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(filtro.errors.count, "error") %> prohibited this filtro from being saved:</h2>
+
+      <ul>
+      <% filtro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :empresa_filtro %>
+    <%= f.text_field :empresa_filtro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fechainicio_filtro %>
+    <%= f.text_field :fechainicio_filtro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fechafin_filtro %>
+    <%= f.text_field :fechafin_filtro %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
