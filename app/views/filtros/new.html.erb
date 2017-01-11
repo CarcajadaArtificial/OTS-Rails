@@ -1,2 +1,7 @@
 <%= render 'layouts/navbar' %>
+<% if current_user && current_user.AdminStatus? %>
+
 <%= render 'form', filtro: @filtro %>
+<% else %>
+<%= render 'layouts/error' %>
+<% end %>

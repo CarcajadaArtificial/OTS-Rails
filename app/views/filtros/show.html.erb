@@ -1,3 +1,5 @@
+<% if current_user && current_user.AdminStatus? %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -17,3 +19,6 @@
 
 <%= link_to 'Edit', edit_filtro_path(@filtro) %> |
 <%= link_to 'Back', filtros_path %>
+<% else %>
+<%= render 'layouts/error' %>
+<% end %>
