@@ -20,7 +20,8 @@ class Cliente < ApplicationRecord
         kmA = arrrecibos[j].kmactual_recibo
         kmB = arrrecibos[j+1].kmactual_recibo
         litros = arrrecibos[j].combustible_recibo
-        ahorro = ahorro + ((kmB - kmA)/arrvehiculos[i].rendimientohistorico_vehiculo)-litros
+        precio = arrrecibos[j].preciogas_recibo
+        ahorro = ahorro + (((kmB - kmA)/arrvehiculos[i].rendimientohistorico_vehiculo)-litros)*precio
         j = j + 1
       end
 

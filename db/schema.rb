@@ -47,13 +47,14 @@ ActiveRecord::Schema.define(version: 20170111050210) do
 
   create_table "recibos", force: :cascade do |t|
     t.integer  "folio_recibo"
-    t.float    "kmanterior_recibo"
-    t.float    "kmactual_recibo",    null: false
-    t.float    "combustible_recibo", null: false
-    t.float    "sobres_recibo",      null: false
-    t.string   "placas_recibo",      null: false
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.float    "kmactual_recibo",           null: false
+    t.float    "combustible_recibo",        null: false
+    t.float    "sobres_recibo",             null: false
+    t.string   "placas_recibo",             null: false
+    t.string   "emailrepresentante_recibo"
+    t.float    "preciogas_recibo",          null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["folio_recibo"], name: "index_recibos_on_folio_recibo", using: :btree
   end
 
