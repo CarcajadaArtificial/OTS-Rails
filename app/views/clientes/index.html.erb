@@ -22,7 +22,7 @@
         </tr>
       </tbody>
     </table>
-
+    <br>
     <div class="offset-md-1">
       <% @vehiculo = Vehiculo.where(:credencialcliente_vehiculo => @cliente.credencial_cliente) %>
       <% @vehiculo.each do |vehiculo| %>

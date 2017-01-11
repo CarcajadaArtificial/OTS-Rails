@@ -12,7 +12,7 @@ class Cliente < ApplicationRecord
       vehiculo = arrvehiculos[i]
 
       # arrrecibos = arreglo de todos los recibos de un tal vehículo
-      arrrecibos = Recibo.where(:placas_recibo => arrvehiculos[i].placas_vehiculo).order(:id)
+      arrrecibos = Recibo.where(:placas_recibo => arrvehiculos[i].placas_vehiculo).where("created_at >= ? AND created_at < ?", Filtro.last.fechainicio_filtro.to_date, Filtro.last.fechafin_filtro.to_date).order(:id)
       # j = contador que recorre el arreglo de arrrecibos
       j = 0
 
