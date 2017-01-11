@@ -15,6 +15,14 @@
       </tr>
       <tr>
         <td>
+          <strong>Fecha</strong>
+        </td>
+        <td>
+          <%= @recibo.created_at.strftime("%e / %b / %Y") %>
+        </td>
+      </tr>
+      <tr>
+        <td>
           <strong>Kilometraje actual</strong>
         </td>
         <td>
@@ -31,6 +39,14 @@
       </tr>
       <tr>
         <td>
+          <strong>Precio combustible</strong>
+        </td>
+        <td>
+          <p>$ <%= @recibo.preciogas_recibo %></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
           <strong>Cantidad de sobres</strong>
         </td>
         <td>
@@ -43,6 +59,43 @@
   <!-- División de información de representante-->
   <div class="col-md-3">
     <h4>Representante</h4>
+    <table class="table">
+      <tr>
+        <td>
+          <strong>Nombre</strong>
+        </td>
+        <td>
+          <%= User.where(:email => @recibo.emailrepresentante_recibo).first.nombre_user %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Correo electrónico</strong>
+        </td>
+        <td>
+          <%= @recibo.emailrepresentante_recibo %>
+        </td>
+      <tr>
+        <td>
+          <strong>Teléfono</strong>
+        </td>
+        <td>
+          <%= User.where(:email => @recibo.emailrepresentante_recibo).first.telefono_user %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Ciudad</strong>
+        <td>
+          <%= User.where(:email => @recibo.emailrepresentante_recibo).first.ciudad_user %>
+      </tr>
+      <tr>
+        <td>
+          <strong>Estado</strong>
+        <td>
+          <%= User.where(:email => @recibo.emailrepresentante_recibo).first.estado_user %>
+      </tr>
+    </table>
   </div>
   <!-- División de información de vehículo -->
   <div class="col-md-3">

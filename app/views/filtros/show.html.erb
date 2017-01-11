@@ -1,0 +1,24 @@
+<% if current_user && current_user.AdminStatus? %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Empresa filtro:</strong>
+  <%= @filtro.empresa_filtro %>
+</p>
+
+<p>
+  <strong>Fechainicio filtro:</strong>
+  <%= @filtro.fechainicio_filtro %>
+</p>
+
+<p>
+  <strong>Fechafin filtro:</strong>
+  <%= @filtro.fechafin_filtro %>
+</p>
+
+<%= link_to 'Edit', edit_filtro_path(@filtro) %> |
+<%= link_to 'Back', filtros_path %>
+<% else %>
+<%= render 'layouts/error' %>
+<% end %>

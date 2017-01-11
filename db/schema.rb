@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161217111743) do
+ActiveRecord::Schema.define(version: 20170111050210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,15 +37,24 @@ ActiveRecord::Schema.define(version: 20161217111743) do
     t.index ["credencial_cliente"], name: "index_clientes_on_credencial_cliente", using: :btree
   end
 
-  create_table "recibos", force: :cascade do |t|
-    t.integer  "folio_recibo"
-    t.float    "kmanterior_recibo"
-    t.float    "kmactual_recibo",    null: false
-    t.float    "combustible_recibo", null: false
-    t.float    "sobres_recibo",      null: false
-    t.string   "placas_recibo",      null: false
+  create_table "filtros", force: :cascade do |t|
+    t.string   "empresa_filtro",     null: false
+    t.string   "fechainicio_filtro", null: false
+    t.string   "fechafin_filtro",    null: false
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+  end
+
+  create_table "recibos", force: :cascade do |t|
+    t.integer  "folio_recibo"
+    t.float    "kmactual_recibo",           null: false
+    t.float    "combustible_recibo",        null: false
+    t.float    "sobres_recibo",             null: false
+    t.string   "placas_recibo",             null: false
+    t.string   "emailrepresentante_recibo"
+    t.float    "preciogas_recibo",          null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["folio_recibo"], name: "index_recibos_on_folio_recibo", using: :btree
   end
 

@@ -36,6 +36,11 @@
         <%= f.text_field :sobres_recibo, class: 'form-control', placeholder: 'Cantidad de sobres' %>
       </div>
       <br>
+      <div class="field">
+        <%= f.label :preciogas_recibo, class: 'sr-only' %>
+        <%= f.number_field :preciogas_recibo, class: 'form-control', placeholder: 'Precio actual del combustible' %>
+      </div>
+      <br>
       <em>Fotografía del recibo de carga de gasolina.</em>
       <input type="File" class="form-control" placeholder="Placa">
       <br>

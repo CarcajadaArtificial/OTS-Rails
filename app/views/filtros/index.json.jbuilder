@@ -1,0 +1,1 @@
+json.array! @filtros, partial: 'filtros/filtro', as: :filtro

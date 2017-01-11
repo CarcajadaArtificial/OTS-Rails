@@ -12,7 +12,7 @@ class Cliente < ApplicationRecord
       vehiculo = arrvehiculos[i]
 
       # arrrecibos = arreglo de todos los recibos de un tal vehículo
-      arrrecibos = Recibo.where(:placas_recibo => arrvehiculos[i].placas_vehiculo).order(:id)
+      arrrecibos = Recibo.where(:placas_recibo => arrvehiculos[i].placas_vehiculo).where("created_at >= ? AND created_at < ?", Filtro.last.fechainicio_filtro.to_date, Filtro.last.fechafin_filtro.to_date).order(:id)
       # j = contador que recorre el arreglo de arrrecibos
       j = 0
 
@@ -20,7 +20,8 @@ class Cliente < ApplicationRecord
         kmA = arrrecibos[j].kmactual_recibo
         kmB = arrrecibos[j+1].kmactual_recibo
         litros = arrrecibos[j].combustible_recibo
-        ahorro = ahorro + ((kmB - kmA)/arrvehiculos[i].rendimientohistorico_vehiculo)-litros
+        precio = arrrecibos[j].preciogas_recibo
+        ahorro = ahorro + (((kmB - kmA)/arrvehiculos[i].rendimientohistorico_vehiculo)-litros)*precio
         j = j + 1
       end
 
