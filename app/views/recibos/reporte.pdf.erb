@@ -8,21 +8,22 @@
   </head>
 
   <body>
+
+      <!-- Reporte mensual -->
+      <div class="row">
+        <div class="col-xs-12">
+        </div>
+        <br>
+      </div>
+      <!-- Información esencial y logo -->
       <div class="row">
         <div class="col-xs-6">
-          <h1 class="center">Reporte Mensual</h1>
-        </div>
-        <div class="col-xs-5 offset-xs-1">
-          <h2 class="center">OTS Services</h2>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-6 offset-xs-3">
+          <h1>Reporte Mensual</h1>
           <% @cliente = Cliente.where(:credencial_cliente => Filtro.last.empresa_filtro).first %>
-          <h2 class="center"> <%= @cliente.empresa_cliente %> </h2>
-          <table class="center table">
-            <tr>
+          <h2> <%= @cliente.empresa_cliente %> </h2>
+          <br>
+          <table class="center table table-responsive">
+            <tr bgcolor="#97d700">
               <td><strong>Ahorro</strong></td>
               <td>$ <%= @cliente.calcula_ahorro.round(2)%></td>
             </tr>
@@ -37,48 +38,46 @@
             </tr>
           </table>
         </div>
+        <div class="col-xs-6 image_space">
+          <%= wicked_pdf_image_tag ("pdflogo.png"), :class => "image_center" %>
+        </div>
       </div>
-
+      <!-- Desglosado de los recibos -->
       <div class="row">
-        <div class="col-xs-8">
+        <div class="col-xs-12">
+          <br>
           <% @vehiculo = Vehiculo.where(:credencialcliente_vehiculo => @cliente.credencial_cliente) %>
           <% @vehiculo.each do |vehiculo| %>
             <table class="table table-responsive">
-              <tr>
-                <td><%= vehiculo.marca_vehiculo %></td>
-                <td><%= vehiculo.modelo_vehiculo %></td>
-                <td><%= vehiculo.ano_vehiculo %></td>
-                <td><%= vehiculo.placas_vehiculo %></td>
+              <tr bgcolor="#97d700">
+                <td><strong><%= vehiculo.placas_vehiculo %></strong></td>
+                <td><strong><%= vehiculo.marca_vehiculo %></strong></td>
+                <td><strong><%= vehiculo.modelo_vehiculo %></strong></td>
+                <td><strong><%= vehiculo.ano_vehiculo %></strong></td>
               </tr>
             </table>
-        </div>
+            <table class="table table-responsive">
+              <tr>
+                <td>Folio</td>
+                <td>Kilometraje</td>
+                <td>Combustible</td>
+                <td>Sobres aplicados</td>
+                <td>Fecha</td>
+              </tr>
+              <% @recibo = Recibo.where(:placas_recibo => vehiculo.placas_vehiculo).where("created_at >= ? AND created_at < ?", Filtro.last.fechainicio_filtro.to_date, Filtro.last.fechafin_filtro.to_date) %>
+              <% @recibo.each do |recibo| %>
+                <tr>
+                  <td><%= recibo.id %></td>
+                  <td><%= recibo.kmactual_recibo %></td>
+                  <td><%= recibo.combustible_recibo %></td>
+                  <td><%= recibo.sobres_recibo %></td>
+                  <td><%= recibo.created_at.strftime("%e / %b / %Y") %></td>
+                </tr>
+              <% end %>
+            </table>
 
-            <div class="col-xs-10 offset-xs-1">
-              <table class="table table-responsive">
-                <thead>
-                  <tr>
-                    <td>Folio</td>
-                    <td>Kilometraje</td>
-                    <td>Combustible</td>
-                    <td>Sobres aplicados</td>
-                    <td>Fecha</td>
-                  </tr>
-                </thead>
-                <% @recibo = Recibo.where(:placas_recibo => vehiculo.placas_vehiculo).where("created_at >= ? AND created_at < ?", Filtro.last.fechainicio_filtro.to_date, Filtro.last.fechafin_filtro.to_date) %>
-                <% @recibo.each do |recibo| %>
-                <tbody>
-                  <tr>
-                    <td><%= recibo.id %></td>
-                    <td><%= recibo.kmactual_recibo %></td>
-                    <td><%= recibo.combustible_recibo %></td>
-                    <td><%= recibo.sobres_recibo %></td>
-                    <td><%= recibo.created_at.strftime("%e / %b / %Y") %></td>
-                  </tr>
-                </tbody>
-                <% end %>
-              </table>
-            </div>
           <% end %>
+        </div>
       </div>
 
   </body>
