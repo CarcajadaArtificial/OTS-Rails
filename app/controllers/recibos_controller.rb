@@ -32,13 +32,18 @@ class RecibosController < ApplicationController
     @recibo = Recibo.new(recibo_params)
     @recibo.emailrepresentante_recibo = current_user.email
     respond_to do |format|
-      if @recibo.save
-        format.html { redirect_to @recibo, notice: 'Recibo was successfully created.' }
-        format.json { render :show, status: :created, location: @recibo }
+      if current_user.AdminStatus
+        if @recibo.save
+          format.html { redirect_to @recibo, notice: 'Recibo creado satisfactoriamente.' }
+          format.json { render :show, status: :created, location: @recibo }
+        else
+          format.html { render :new }
+          format.json { render json: @recibo.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :new }
-        format.json { render json: @recibo.errors, status: :unprocessable_entity }
+        format.html {redirect_to nuevo_recibo_path, notice: 'Recibo creado satisfactoriamente'}
       end
+
     end
 
   end
@@ -75,6 +80,6 @@ class RecibosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recibo_params
-      params.require(:recibo).permit(:folio_recibo, :kmanterior_recibo, :kmactual_recibo, :combustible_recibo, :sobres_recibo, :placas_recibo, :preciogas_recibo)
+      params.require(:recibo).permit(:folio_recibo, :kmanterior_recibo, :kmactual_recibo, :combustible_recibo, :sobres_recibo, :placas_recibo, :preciogas_recibo, :created_at)
     end
 end

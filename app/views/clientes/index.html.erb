@@ -15,6 +15,7 @@
     <table class="table table-responsive">
       <thead>
         <tr>
+          <th>Credencial</th>
           <th>Empresa</th>
           <th>Ahorro</th>
           <th>Participación OTS</th>
@@ -28,6 +29,7 @@
       <tbody style="text-align:center">
         <% @clientes.each do |cliente| %>
         <tr>
+          <td><%= cliente.credencial_cliente%></td>
           <td><%= cliente.empresa_cliente %></td>
           <td>$ <%= cliente.calcula_ahorro.round(2) %></td>
           <td>$ <%= cliente.calcula_pOTS.round(2) %></td>
