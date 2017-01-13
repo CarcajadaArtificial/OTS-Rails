@@ -7,6 +7,10 @@ class ClientesController < ApplicationController
     @clientes = Cliente.all
   end
 
+  def filtered
+    @clientes = Cliente.all
+  end
+
   # GET /clientes/1
   # GET /clientes/1.json
   def show
