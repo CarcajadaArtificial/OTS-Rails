@@ -32,20 +32,19 @@ class RecibosController < ApplicationController
     @recibo = Recibo.new(recibo_params)
     @recibo.emailrepresentante_recibo = current_user.email
     respond_to do |format|
-      if current_user.AdminStatus
-        if @recibo.save
+      if @recibo.save
+        if current_user.AdminStatus
           format.html { redirect_to @recibo, notice: 'Recibo creado satisfactoriamente.' }
           format.json { render :show, status: :created, location: @recibo }
         else
-          format.html { render :new }
-          format.json { render json: @recibo.errors, status: :unprocessable_entity }
+          format.html { redirect_to nuevo_recibo_path, notice: 'Recibo creado satisfactoriamente.' }
+          format.json { render :show, status: :created, location: @recibo }
         end
       else
-        format.html {redirect_to nuevo_recibo_path, notice: 'Recibo creado satisfactoriamente'}
+        format.html { render :new }
+        format.json { render json: @recibo.errors, status: :unprocessable_entity }
       end
-
     end
-
   end
 
   # PATCH/PUT /recibos/1
