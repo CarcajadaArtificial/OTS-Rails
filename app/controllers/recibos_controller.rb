@@ -75,6 +75,6 @@ class RecibosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recibo_params
-      params.require(:recibo).permit(:folio_recibo, :kmanterior_recibo, :kmactual_recibo, :combustible_recibo, :sobres_recibo, :placas_recibo, :preciogas_recibo)
+      params.require(:recibo).permit(:folio_recibo, :kmanterior_recibo, :kmactual_recibo, :combustible_recibo, :sobres_recibo, :placas_recibo, :preciogas_recibo, :created_at)
     end
 end

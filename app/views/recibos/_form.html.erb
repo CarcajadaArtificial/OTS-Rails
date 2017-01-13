@@ -40,7 +40,17 @@
         <%= f.label :preciogas_recibo, class: 'sr-only' %>
         <%= f.text_field :preciogas_recibo, class: 'form-control', placeholder: 'Precio actual del combustible' %>
       </div>
+
       <br>
+      <% if current_user && current_user.AdminStatus? %>
+
+      <div class="field">
+        <%= f.label :created_at, class: 'sr-only' %>
+        <%= f.date_field :created_at, class: 'form-control', placeholder: 'Fecha de recibo' %>
+      </div>
+      <br>
+      <% end %>
+
       <div class="actions">
         <%= f.submit "Crear", class: 'btn btn-lg btn-primary' %>
       </div>
