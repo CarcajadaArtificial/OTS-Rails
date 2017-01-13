@@ -30,7 +30,7 @@ class FiltrosController < ApplicationController
       if @filtro.save
         format.html { redirect_to @filtro, notice: 'Filtro was successfully created.' }
         format.json { render :show, status: :created, location: @filtro }
-        redirect_to reporte_cliente_path
+        redirect_to filtro_clientes_path
         return
       else
         format.html { render :new }

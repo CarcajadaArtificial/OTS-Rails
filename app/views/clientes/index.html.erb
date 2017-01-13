@@ -1,70 +1,49 @@
 <%= render 'layouts/navbar' %>
 <% if current_user && current_user.AdminStatus? %>
+
+<div class="row">
+  <div class="col-md-2 offset-md-1">
+    <%= button_to "Filtrar", nuevo_filtro_path, method: :get, class: 'btn btn-lg btn-primary' %>
+  </div>
+  <div class="col-md-6">
+    <h2 style="text-align:center">Clientes</h2>
+  </div>
+</div>
+<br>
 <div class="row">
   <div class="col-md-10 offset-md-1">
-    <%= button_to "Generar PDF", "/recibos.pdf", method: :get, class: 'btn btn-lg btn-primary' %>
-    <% @cliente = Cliente.where(:credencial_cliente => Filtro.last.empresa_filtro).first %>
-    <h1 style="text-align:center"> <%= @cliente.empresa_cliente %> </h1>
     <table class="table table-responsive">
       <thead>
         <tr>
+          <th>Credencial</th>
+          <th>Empresa</th>
           <th>Ahorro</th>
           <th>Participación OTS</th>
           <th>Participación comisionista</th>
           <th>Sobres aplicados</th>
+          <th>Detalles</th>
+          <th>Eliminar</th>
+          <th colspan="3"></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody style="text-align:center">
+        <% @clientes.each do |cliente| %>
         <tr>
-          <th><%= @cliente.calcula_ahorro.round(2)%></th>
-          <th><%= @cliente.calcula_pOTS.round(2)%></th>
-          <th><%= @cliente.calcula_pComisionista.round(2)%></th>
-          <th><%= Recibo.where(:placas_recibo => Vehiculo.where(:credencialcliente_vehiculo => @cliente.credencial_cliente).pluck(:placas_vehiculo)).sum(:sobres_recibo) %></th>
+          <td><%= cliente.credencial_cliente%></td>
+          <td><%= cliente.empresa_cliente %></td>
+          <td>$ <%= cliente.calcula_ahorro.round(2) %></td>
+          <td>$ <%= cliente.calcula_pOTS.round(2) %></td>
+          <td>$ <%= cliente.calcula_pComisionista.round(2) %></td>
+          <td><%= Recibo.where(:placas_recibo => Vehiculo.where(:credencialcliente_vehiculo => cliente.credencial_cliente).pluck(:placas_vehiculo)).sum(:sobres_recibo) %></td>
+          <td><%= link_to '', cliente, class: 'btn btn-info'%></td>
+          <td><%= link_to '', cliente, class: 'btn btn-danger', method: :delete, data: { confirm: '¿Estás seguro de eliminar a este cliente?' } %></td>
         </tr>
+        <% end %>
       </tbody>
     </table>
-    <br>
-    <div class="offset-md-1">
-      <% @vehiculo = Vehiculo.where(:credencialcliente_vehiculo => @cliente.credencial_cliente) %>
-      <% @vehiculo.each do |vehiculo| %>
-        <table class="table table-responsive">
-          <tr>
-            <td><%= vehiculo.marca_vehiculo %></td>
-            <td><%= vehiculo.modelo_vehiculo %></td>
-            <td><%= vehiculo.ano_vehiculo %></td>
-            <td><%= vehiculo.placas_vehiculo %></td>
-          </tr>
-        </table>
-
-        <div class="offset-md-1">
-          <table class="table table-responsive">
-            <thead>
-              <tr>
-                <td>Folio</td>
-                <td>Kilometraje</td>
-                <td>Combustible</td>
-                <td>Sobres aplicados</td>
-                <td>Fecha</td>
-              </tr>
-            </thead>
-            <% @recibo = Recibo.where(:placas_recibo => vehiculo.placas_vehiculo).where("created_at >= ? AND created_at < ?", Filtro.last.fechainicio_filtro.to_date, Filtro.last.fechafin_filtro.to_date) %>
-            <% @recibo.each do |recibo| %>
-            <tbody>
-              <tr>
-                <td><%= recibo.id %></td>
-                <td><%= recibo.kmactual_recibo %></td>
-                <td><%= recibo.combustible_recibo %></td>
-                <td><%= recibo.sobres_recibo %></td>
-                <td><%= recibo.created_at.strftime("%e / %b / %Y") %></td>
-              </tr>
-            </tbody>
-            <% end %>
-          </table>
-        </div>
-      <% end %>
-    </div>
   </div>
 </div>
+
 
 <% else %>
   <%= render 'layouts/error' %>
