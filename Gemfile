@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap', '~> 4.0.0.alpha4'
-
+gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'wicked_pdf'
 gem "wkhtmltopdf_binary"
