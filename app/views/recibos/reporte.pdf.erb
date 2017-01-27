@@ -25,11 +25,11 @@
           <table class="center table table-responsive">
             <tr bgcolor="#97d700">
               <td><strong>Ahorro</strong></td>
-              <td>$ <%= @cliente.calcula_ahorro.round(2)%></td>
+              <td>$ <%= @cliente.calcula_ahorro_filtrado.round(2)%> <%=%></td>
             </tr>
             <tr>
               <td><strong>Total a pagar</strong></td>
-              <% @total = @cliente.calcula_ahorro.round(2)/2 %>
+              <% @total = @cliente.calcula_ahorro_filtrado.round(2)/2 %>
               <td>$ <%= @total.round(2)%></td>
             </tr>
             <tr>
