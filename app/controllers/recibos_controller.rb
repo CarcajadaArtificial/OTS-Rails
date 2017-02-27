@@ -31,6 +31,7 @@ class RecibosController < ApplicationController
   def create
     @recibo = Recibo.new(recibo_params)
     @recibo.emailrepresentante_recibo = current_user.email
+    @recibo.tercero_recibo = Vehiculo.where(:placas_vehiculo => @recibo.placas_recibo).first.tercero_vehiculo
     respond_to do |format|
       if @recibo.save
         if current_user.AdminStatus
@@ -79,6 +80,6 @@ class RecibosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recibo_params
-      params.require(:recibo).permit(:folio_recibo, :kmanterior_recibo, :kmactual_recibo, :combustible_recibo, :sobres_recibo, :placas_recibo, :preciogas_recibo, :created_at)
+      params.require(:recibo).permit(:folio_recibo, :kmanterior_recibo, :kmactual_recibo, :combustible_recibo, :sobres_recibo, :placas_recibo, :preciogas_recibo, :created_at, :tercero_recibo)
     end
 end

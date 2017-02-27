@@ -83,4 +83,9 @@ class Cliente < ApplicationRecord
   end
 
 
+  def calcula_terceros
+    arrteceros = Vehiculo.where(:credencialcliente_vehiculo => credencial_cliente).order(:tercero_vehiculo)
+    @t = arrteceros.uniq
+  end
+
 end

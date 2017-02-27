@@ -44,27 +44,96 @@
   <% elsif current_user.rol_user == "cliente" %>
     <div class="row">
       <div class="col-md-10 offset-md-1">
-        <h2 stye="text-align:center;">Telcel</h2>
-        <br>
-        <% @vehiculos.each do |tercero| %>
+        <% @clie = Cliente.where(:credencial_cliente => current_user.credencialcliente_user).first %>
+        <h2><%= @clie.empresa_cliente %></h2>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-md-9 offset-md-2">
+        <% @vehiculos.each do |vehiculo| %>
+          <h2><%= vehiculo.placas_vehiculo %> - <%= vehiculo.marca_vehiculo %> <%= vehiculo.modelo_vehiculo %> <%= vehiculo.ano_vehiculo %> </h2>
           <div class="row">
-            <div class="col-md-9 offset-md-2">
-              <h3>Tercero 1</h3>
+            <div class="col-md-10 offset-md-1">
+              <br>
+              <table class="table table-responsive" style="text-align:center;">
+                <thead>
+                  <tr>
+                    <th style="text-align:center;">Proveedor</th>
+                    <th style="text-align:center;">Kilometraje</th>
+                    <th style="text-align:center;">Combustible</th>
+                    <th style="text-align:center;">Sobres aplicados</th>
+                    <th style="text-align:center;">Precio del combustible</th>
+                    <th style="text-align:center;">Fecha</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @recib = Recibo.where(:placas_recibo => vehiculo.placas_vehiculo) %>
+                  <% @recib.each do |recibo| %>
+                  <tr>
+                    <td><%= recibo.tercero_recibo %></td>
+                    <td><%= recibo.kmactual_recibo %></td>
+                    <td><%= recibo.combustible_recibo %></td>
+                    <td><%= recibo.sobres_recibo %></td>
+                    <td><%= recibo.preciogas_recibo %></td>
+                    <td><%= recibo.created_at.strftime("%e / %b / %Y") %></td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
             </div>
           </div>
-
-          <table class="table table-responsive">
-            <thead>
-              <tr>
-
-              </tr>
-            </thead>
-          </table>
         <% end %>
       </div>
     </div>
+    <br>
   <% elsif current_user.rol_user == "tercero" %>
 
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <h2><%= current_user.nombre_user %></h2>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-md-9 offset-md-2">
+      <% @vehi = Vehiculo.where(:tercero_vehiculo => current_user.nombre_user) %>
+      <% @vehi.each do |vehiculo| %>
+        <h2><%= vehiculo.placas_vehiculo %> - <%= vehiculo.marca_vehiculo %> <%= vehiculo.modelo_vehiculo %> <%= vehiculo.ano_vehiculo %> </h2>
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <br>
+            <table class="table table-responsive" style="text-align:center;">
+              <thead>
+                <tr>
+                  <th style="text-align:center;">Kilometraje</th>
+                  <th style="text-align:center;">Combustible</th>
+                  <th style="text-align:center;">Sobres aplicados</th>
+                  <th style="text-align:center;">Precio del combustible</th>
+                  <th style="text-align:center;">Fecha</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @recib = Recibo.where(:placas_recibo => vehiculo.placas_vehiculo) %>
+                <% @recib.each do |recibo| %>
+                <tr>
+                  <td><%= recibo.kmactual_recibo %></td>
+                  <td><%= recibo.combustible_recibo %></td>
+                  <td><%= recibo.sobres_recibo %></td>
+                  <td><%= recibo.preciogas_recibo %></td>
+                  <td><%= recibo.created_at.strftime("%e / %b / %Y") %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <br>
   <% else%>
     <%= render 'layouts/error' %>
   <% end %>

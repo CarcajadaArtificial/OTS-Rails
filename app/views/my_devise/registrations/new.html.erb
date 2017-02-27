@@ -53,9 +53,23 @@
       </div>
 
       </br>
+      </br>
+      <em>Llenar con: "cliente" o "tercero". (Sin comillas)</em>
+      <div class="field">
+        <%= f.label :rol_user, class: 'sr-only' %><br />
+        <%= f.text_field :rol_user, autofocus: true, class: 'form-control', placeholder: 'Rol' %>
+      </div>
+      </br>
+      <em>Únicamente para cuentas de clientes</em>
+      <div class="field">
+        <%= f.label :credencialcliente_user, class: 'sr-only' %><br />
+        <%= f.text_field :credencialcliente_user, autofocus: true, class: 'form-control', placeholder: 'Credencial de cliente' %>
+      </div>
+      <br>
       <div class="actions">
         <%= f.submit "Crear", class: 'btn btn-lg btn-primary' %>
       </div>
+      </br>
     <% end %>
 
 
