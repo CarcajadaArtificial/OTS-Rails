@@ -57,6 +57,12 @@
         <%= f.text_field :tercero_vehiculo, class: 'form-control', placeholder: 'Tercero de vehículo' %>
       </div>
       <br>
+      <em>Horas/Kilómetros</em>
+      <div class="field">
+        <%= f.label :horas_vehiculo, class: 'sr-only' %><br />
+        <%= f.check_box :horas_vehiculo, class: 'form-control', placeholder: 'Admin?' %>
+      </div>
+      <br>
       <div class="actions">
         <%= f.submit "Crear", class: 'btn btn-lg btn-primary' %>
       </div>

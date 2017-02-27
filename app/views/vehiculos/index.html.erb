@@ -61,7 +61,11 @@
                 <thead>
                   <tr>
                     <th style="text-align:center;">Proveedor</th>
-                    <th style="text-align:center;">Kilometraje</th>
+                    <% if vehiculo.horas_vehiculo %>
+                      <th style="text-align:center;">Horas</th>
+                    <% else %>
+                      <th style="text-align:center;">Kilometraje</th>
+                    <% end %>
                     <th style="text-align:center;">Combustible</th>
                     <th style="text-align:center;">Sobres aplicados</th>
                     <th style="text-align:center;">Precio del combustible</th>
@@ -108,7 +112,11 @@
             <table class="table table-responsive" style="text-align:center;">
               <thead>
                 <tr>
-                  <th style="text-align:center;">Kilometraje</th>
+                  <% if vehiculo.horas_vehiculo %>
+                    <th style="text-align:center;">Horas</th>
+                  <% else %>
+                    <th style="text-align:center;">Kilometraje</th>
+                  <% end %>
                   <th style="text-align:center;">Combustible</th>
                   <th style="text-align:center;">Sobres aplicados</th>
                   <th style="text-align:center;">Precio del combustible</th>

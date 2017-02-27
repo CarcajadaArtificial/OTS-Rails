@@ -84,17 +84,17 @@ ActiveRecord::Schema.define(version: 20170227065057) do
   end
 
   create_table "vehiculos", force: :cascade do |t|
-    t.string   "placas_vehiculo",                               null: false
-    t.string   "marca_vehiculo",                                null: false
-    t.string   "modelo_vehiculo",                               null: false
-    t.string   "ano_vehiculo",                                  null: false
-    t.float    "rendimientohistorico_vehiculo",                 null: false
-    t.string   "operador_vehiculo",                             null: false
-    t.string   "credencialcliente_vehiculo",                    null: false
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.string   "placas_vehiculo",               null: false
+    t.string   "marca_vehiculo",                null: false
+    t.string   "modelo_vehiculo",               null: false
+    t.string   "ano_vehiculo",                  null: false
+    t.float    "rendimientohistorico_vehiculo", null: false
+    t.string   "operador_vehiculo",             null: false
+    t.string   "credencialcliente_vehiculo",    null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "tercero_vehiculo"
-    t.boolean  "horas_vehiculo",                default: false
+    t.string   "horas_vehiculo"
     t.index ["placas_vehiculo"], name: "index_vehiculos_on_placas_vehiculo", unique: true, using: :btree
   end
 
