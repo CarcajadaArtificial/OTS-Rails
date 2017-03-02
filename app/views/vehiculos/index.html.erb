@@ -55,7 +55,23 @@
         <% @vehic = Vehiculo.where(:credencialcliente_vehiculo => current_user.credencialcliente_user) %>
         <% @vehic.each do |vehiculo| %>
           <h2><%= vehiculo.placas_vehiculo %> - <%= vehiculo.marca_vehiculo %> <%= vehiculo.modelo_vehiculo %> <%= vehiculo.ano_vehiculo %></h2>
-          <h2> Rendimiento histórico: <%= vehiculo.rendimientohistorico_vehiculo %> | Rendimiento Actual:  <%= vehiculo.calcula_rendimiento.round(2)%>|% de mejora: <%=(((vehiculo.calcula_rendimiento-vehiculo.rendimientohistorico_vehiculo)*100)/vehiculo.rendimientohistorico_vehiculo).round(2)%>%</h2>
+          <h4 style="text-indent: 50px;">
+            Rendimiento histórico: <%= vehiculo.rendimientohistorico_vehiculo %>
+            <% if vehiculo.horas_vehiculo %>
+            hr/L
+            <% else %>
+            km/L
+            <% end %>
+          </h4>
+          <h4 style="text-indent: 50px;">
+            Rendimiento Actual: <%= vehiculo.calcula_rendimiento.round(2)%>
+            <% if vehiculo.horas_vehiculo %>
+            hr/L
+            <% else %>
+            km/L
+            <% end %>
+          </h4>
+          <h4 style="text-indent: 50px;"> Porcentaje de mejora: <%=(((vehiculo.calcula_rendimiento-vehiculo.rendimientohistorico_vehiculo)*100)/vehiculo.rendimientohistorico_vehiculo).round(2)%>%</h4>
           <div class="row">
             <div class="col-md-10 offset-md-1">
               <br>
@@ -87,15 +103,13 @@
                   </tr>
                   <% end %>
                   <tr>
-                    <td>Totales</td>
-                    <td><%= (@recib.last.kmactual_recibo-@recib.first.kmactual_recibo)%></td>
-                    <td><%= @combustible_suma%></td>
-                    <td></td>
-                    <td></td>
-
+                    <td><strong>Totales</strong></td>
+                    <td><strong><%= (@recib.last.kmactual_recibo-@recib.first.kmactual_recibo)%></strong></td>
+                    <td><strong><%= @combustible_suma%></strong></td>
                   </tr>
                 </tbody>
               </table>
+              <br>
             </div>
           </div>
         <% end %>
