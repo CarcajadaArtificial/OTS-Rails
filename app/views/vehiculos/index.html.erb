@@ -52,8 +52,10 @@
 
     <div class="row">
       <div class="col-md-9 offset-md-2">
-        <% @vehiculos.each do |vehiculo| %>
-          <h2><%= vehiculo.placas_vehiculo %> - <%= vehiculo.marca_vehiculo %> <%= vehiculo.modelo_vehiculo %> <%= vehiculo.ano_vehiculo %> </h2>
+        <% @vehic = Vehiculo.where(:credencialcliente_vehiculo => current_user.credencialcliente_user) %>
+        <% @vehic.each do |vehiculo| %>
+          <h2><%= vehiculo.placas_vehiculo %> - <%= vehiculo.marca_vehiculo %> <%= vehiculo.modelo_vehiculo %> <%= vehiculo.ano_vehiculo %></h2>
+          <h2> Rendimiento histórico: <%= vehiculo.rendimientohistorico_vehiculo %> | Rendimiento Actual:  <%= vehiculo.calcula_rendimiento.round(2)%>|% de mejora: <%=(((vehiculo.calcula_rendimiento-vehiculo.rendimientohistorico_vehiculo)*100)/vehiculo.rendimientohistorico_vehiculo).round(2)%>%</h2>
           <div class="row">
             <div class="col-md-10 offset-md-1">
               <br>
@@ -67,23 +69,31 @@
                       <th style="text-align:center;">Kilometraje</th>
                     <% end %>
                     <th style="text-align:center;">Combustible</th>
-                    <th style="text-align:center;">Sobres aplicados</th>
                     <th style="text-align:center;">Precio del combustible</th>
                     <th style="text-align:center;">Fecha</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <% @recib = Recibo.where(:placas_recibo => vehiculo.placas_vehiculo) %>
+                  <% @recib = Recibo.where(:placas_recibo => vehiculo.placas_vehiculo).order(:created_at) %>
+                  <% @combustible_suma =0%>
                   <% @recib.each do |recibo| %>
+                  <% @combustible_suma = @combustible_suma + recibo.combustible_recibo%>
                   <tr>
                     <td><%= recibo.tercero_recibo %></td>
                     <td><%= recibo.kmactual_recibo %></td>
                     <td><%= recibo.combustible_recibo %></td>
-                    <td><%= recibo.sobres_recibo %></td>
                     <td><%= recibo.preciogas_recibo %></td>
                     <td><%= recibo.created_at.strftime("%e / %b / %Y") %></td>
                   </tr>
                   <% end %>
+                  <tr>
+                    <td>Totales</td>
+                    <td><%= (@recib.last.kmactual_recibo-@recib.first.kmactual_recibo)%></td>
+                    <td><%= @combustible_suma%></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -92,7 +102,7 @@
       </div>
     </div>
     <br>
-  <% elsif current_user.rol_user == "tercero" %>
+    <% elsif current_user.rol_user == "tercero" %>
 
   <div class="row">
     <div class="col-md-10 offset-md-1">

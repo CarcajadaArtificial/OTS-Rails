@@ -19,7 +19,7 @@
       encoding: unicode
       database: OTS-Rails_development
       pool: 5
-      username: oscarguerrero
+      username: daniel
       password:
       timeout: 5000
 
@@ -49,6 +49,6 @@
       encoding: unicode
       database: OTS-Rails_test
       pool: 5
-      username: oscarguerrero
+      username: daniel
       password:
       timeout: 5000
